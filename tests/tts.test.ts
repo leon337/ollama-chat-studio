@@ -22,7 +22,7 @@ function fixture() {
     launches.push(launched);
     return child;
   };
-  const service = new NativeLinuxTts((state) => states.push(state), runner as any, 'linux', '/usr/bin/spd-say');
+  const service = new NativeLinuxTts((state) => states.push(state), runner as any, 'linux', '/usr/bin/spd-say', () => true);
   return { service, launches, states };
 }
 
@@ -69,6 +69,9 @@ describe('TTS nativo isolado e seguro', () => {
     const nonLinux = new NativeLinuxTts(() => {}, undefined, 'win32');
     expect(nonLinux.status()).toEqual({ available: false, backend: 'none' });
     expect(() => nonLinux.speak('ola')).toThrow();
+    const missingBinary = new NativeLinuxTts(() => {}, undefined, 'linux', '/usr/bin/spd-say', () => false);
+    expect(missingBinary.status()).toEqual({ available: false, backend: 'none' });
+    expect(() => missingBinary.speak('ola')).toThrow();
     service.stop();
   });
 });

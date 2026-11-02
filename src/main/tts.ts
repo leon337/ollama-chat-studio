@@ -14,11 +14,13 @@ export class NativeLinuxTts {
     private readonly runner: SpawnTts = spawn,
     private readonly platform: string = process.platform,
     private readonly binary = '/usr/bin/spd-say',
+    private readonly canExecute: (binary: string) => boolean = (binary) => {
+      try { accessSync(binary, constants.X_OK); return true; } catch { return false; }
+    },
   ) {}
 
   available(): boolean {
-    if (this.platform !== 'linux') return false;
-    try { accessSync(this.binary, constants.X_OK); return true; } catch { return false; }
+    return this.platform === 'linux' && this.canExecute(this.binary);
   }
 
   status(): { available: boolean; backend: 'speech-dispatcher' | 'none' } {
