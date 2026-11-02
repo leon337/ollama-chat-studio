@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "background": "#101319", "surface-container-low": "#191c21", "surface-variant": "#32353a", "on-primary-container": "#003b7e", "surface-tint": "#abc7ff", "error-container": "#93000a", "surface-container-highest": "#32353a", "error": "#ffb4ab", "on-primary-fixed-variant": "#004590", "inverse-on-surface": "#2e3036", "surface-dim": "#101319", "primary-fixed-dim": "#abc7ff", "on-secondary-fixed": "#002114", "on-primary-fixed": "#001b3f", "primary-fixed": "#d7e2ff", "on-tertiary-fixed": "#281800", "primary-container": "#77a8ff", "tertiary-container": "#d59f45", "on-tertiary-fixed-variant": "#614000", "on-secondary-fixed-variant": "#005138", "inverse-surface": "#e1e2e9", "outline": "#8c909d", "secondary-fixed": "#86f8c5", "tertiary-fixed-dim": "#f6bd60", "on-primary": "#002f66", "surface-container": "#1d2025", "on-error": "#690005", "on-secondary": "#003825", "secondary-fixed-dim": "#68dbaa", "primary": "#abc7ff", "on-surface-variant": "#c2c6d3", "surface-container-high": "#272a2f", "surface": "#101319", "secondary-container": "#26a477", "surface-container-lowest": "#0b0e13", "inverse-primary": "#235daf", "on-tertiary-container": "#543800", "on-background": "#e1e2e9", "on-error-container": "#ffdad6", "surface-bright": "#36393f", "on-tertiary": "#432c00", "outline-variant": "#424751", "on-secondary-container": "#003120", "tertiary": "#f6bd60", "on-surface": "#e1e2e9", "secondary": "#68dbaa", "tertiary-fixed": "#ffddaf" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "margin-stage": "1.5rem", "gutter-compact": "0.5rem", "space-lg": "1rem", "space-xl": "1.5rem", "space-sm": "0.5rem", "margin": "1rem", "gutter": "1rem", "space-md": "0.75rem" }, "fontFamily": { "label-lg": [ "Inter" ], "headline-sm": [ "Inter" ], "label-md": [ "JetBrains Mono" ], "body-sm": [ "Inter" ], "headline-lg": [ "Inter" ], "body-lg": [ "Inter" ], "label-sm": [ "JetBrains Mono" ], "headline-md": [ "Inter" ], "body-md": [ "Inter" ] }, "fontSize": { "label-lg": [ "14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "600" } ], "headline-sm": [ "15px", { "lineHeight": "20px", "letterSpacing": "-0.005em", "fontWeight": "600" } ], "label-md": [ "12.5px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "500" } ], "body-sm": [ "12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" } ], "headline-lg": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "body-lg": [ "15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" } ], "label-sm": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" } ], "headline-md": [ "17px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-md": [ "14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased select-none"><header class="fixed top-0 left-0 right-0 h-10 bg-surface-container-lowest z-50 flex items-center justify-between px-space-md select-none border-b border-outline-variant/30"><div class="flex items-center gap-space-sm"><div class="flex items-center gap-1.5 pr-space-md"><div class="w-3 h-3 rounded-full bg-error/80"></div><div class="w-3 h-3 rounded-full bg-tertiary/80"></div><div class="w-3 h-3 rounded-full bg-secondary/80"></div></div><div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm"><span class="material-symbols-outlined text-primary text-[14px]">terminal</span><span class="tracking-normal">Ollama Chat Studio v1.0 — Local &amp; Cloud</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container border border-secondary-container/40"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-sm text-label-sm text-secondary tracking-tight font-mono">Ollama 127.0.0.1:11434 • Online</span></div><div class="flex items-center gap-space-xs text-on-surface-variant"><button class="w-6 h-6 flex items-center justify-center rounded hover:bg-surface-variant hover:text-on-surface" title="Minimize"><span class="material-symbols-outlined text-[14px]">minimize</span></button><button class="w-6 h-6 flex items-center justify-center rounded hover:bg-surface-variant hover:text-on-surface" title="Maximize"><span class="material-symbols-outlined text-[14px]">crop_square</span></button><button class="w-6 h-6 flex items-center justify-center rounded hover:bg-error-container hover:text-on-error-container" title="Close"><span class="material-symbols-outlined text-[14px]">close</span></button><div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[16px]">person</span></div></div></div></header><aside class="fixed left-0 top-10 bottom-0 w-14 bg-surface-container-low z-40 flex flex-col justify-between items-center py-space-md border-r border-outline-variant/30"><div class="flex flex-col items-center gap-space-sm w-full"><button class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shadow-sm hover:opacity-90 transition-opacity" title="New Session"><span class="material-symbols-outlined text-[20px]">add</span></button><div class="w-8 h-[1px] bg-outline-variant/30 my-space-xs"></div><nav class="flex flex-col items-center gap-space-xs w-full" data-active-classes="bg-primary-container text-on-primary-container"><a aria-current="page" class="w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-primary-container text-on-primary-container" data-path="chat-studio" href="#" title="Active Workspace"><span class="material-symbols-outlined text-[20px]">chat</span></a><a class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="chat-history" href="#" title="Conversations Log"><span class="material-symbols-outlined text-[20px]">history</span></a><a class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="model-hub" href="#" title="Local &amp; Cloud Models"><span class="material-symbols-outlined text-[20px]">neurology</span></a><a class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="tools-mcp" href="#" title="Tools &amp; Function Calling"><span class="material-symbols-outlined text-[20px]">build</span></a><a class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="audio-multimodal" href="#" title="Speech &amp; Vision Pipelines"><span class="material-symbols-outlined text-[20px]">graphic_eq</span></a><a class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="server-settings" href="#" title="Daemon &amp; Compute Config"><span class="material-symbols-outlined text-[20px]">tune</span></a></nav></div><div class="flex flex-col items-center gap-space-sm w-full"><div class="w-2 h-2 rounded-full bg-secondary" title="Hardware Telemetry OK"></div><div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center border border-outline-variant/40"><span class="material-symbols-outlined text-primary text-[18px]">memory</span></div></div></aside><div class="pl-14"><main class="relative pt-10 min-h-screen bg-surface w-full" id="main-workspace"><div class="flex flex-col w-full h-[calc(100vh-2.5rem)] overflow-hidden">
+<div class="flex flex-row w-full h-full relative">
+<!-- Retractable Conversation Sidebar (256px) -->
+<aside class="w-64 flex-shrink-0 bg-surface-container-low flex flex-col justify-between select-none shadow-md z-20 transition-all duration-300" id="session-sidebar">
+<!-- Sidebar Header & Search -->
+<div class="p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm tracking-widest uppercase">
+<span class="material-symbols-outlined text-primary text-[14px]">forum</span>
+<span>Sessões</span>
+</div>
+<button class="p-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" id="toggle-sidebar-btn" title="Recolher painel">
+<span class="material-symbols-outlined text-[16px]">dock_to_right</span>
+</button>
+</div>
+<button class="w-full h-9 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface flex items-center justify-between px-space-md text-label-md font-label-md shadow-sm transition-all group">
+<span class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span class="text-on-surface font-label-lg text-label-lg">Nova Conversa</span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant opacity-60 font-mono">⌘N</span>
+</button>
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-on-surface-variant text-[16px] pointer-events-none">search</span>
+<input class="w-full h-8 pl-8 pr-7 bg-surface-container rounded-lg text-on-surface placeholder:text-on-surface-variant/60 font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-high transition-colors" placeholder="Buscar conversas..." type="text"/>
+<span class="absolute right-2 top-2 text-[10px] font-label-sm text-on-surface-variant/70 bg-surface-container-high px-1 py-0.2 rounded font-mono">⌘K</span>
+</div>
+</div>
+<!-- Grouped Conversations Scroll Stream -->
+<div class="flex-1 overflow-y-auto px-space-sm space-y-space-md">
+<!-- Grupo: Hoje -->
+<div class="space-y-1">
+<div class="px-space-sm py-1 font-label-sm text-label-sm text-on-surface-variant/70 uppercase tracking-wider flex items-center justify-between">
+<span>Hoje</span>
+<span class="font-mono text-[10px]">2</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container text-on-surface flex flex-col gap-1 cursor-pointer group hover:bg-surface-container-high transition-all">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-primary truncate max-w-[150px]">Refatoração Rust Axum</span>
+<span class="text-[9px] font-mono px-1 rounded bg-surface-variant text-secondary">10:42</span>
+</div>
+<div class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span class="truncate text-[11px] font-mono">qwen2.5-coder:32b</span>
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">more_horiz</span>
+</div>
+</div>
+<div class="p-2 rounded-lg hover:bg-surface-container text-on-surface flex flex-col gap-1 cursor-pointer group transition-all">
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface truncate max-w-[150px]">OCR em Diagrama AWS</span>
+<span class="text-[9px] font-mono px-1 rounded text-on-surface-variant">08:15</span>
+</div>
+<div class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span class="truncate text-[11px] font-mono text-tertiary">llava:13b</span>
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">more_horiz</span>
+</div>
+</div>
+</div>
+<!-- Grupo: Ontem -->
+<div class="space-y-1">
+<div class="px-space-sm py-1 font-label-sm text-label-sm text-on-surface-variant/70 uppercase tracking-wider flex items-center justify-between">
+<span>Ontem</span>
+<span class="font-mono text-[10px]">1</span>
+</div>
+<div class="p-2 rounded-lg hover:bg-surface-container text-on-surface flex flex-col gap-1 cursor-pointer group transition-all">
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface truncate max-w-[150px]">Parsing de Logs Nginx</span>
+<span class="text-[9px] font-mono px-1 rounded text-on-surface-variant">Ontem</span>
+</div>
+<div class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span class="truncate text-[11px] font-mono text-primary-container">llama3.2:latest</span>
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">more_horiz</span>
+</div>
+</div>
+</div>
+<!-- Grupo: Semana Passada -->
+<div class="space-y-1">
+<div class="px-space-sm py-1 font-label-sm text-label-sm text-on-surface-variant/70 uppercase tracking-wider flex items-center justify-between">
+<span>Semana Passada</span>
+<span class="font-mono text-[10px]">3</span>
+</div>
+<div class="p-2 rounded-lg hover:bg-surface-container text-on-surface flex flex-col gap-1 cursor-pointer group transition-all">
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface truncate max-w-[150px]">Benchmarking MCP Server</span>
+<span class="text-[9px] font-mono px-1 rounded text-on-surface-variant">3 dias</span>
+</div>
+<div class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span class="truncate text-[11px] font-mono text-primary-container">llama3.2:latest</span>
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">more_horiz</span>
+</div>
+</div>
+<div class="p-2 rounded-lg hover:bg-surface-container text-on-surface flex flex-col gap-1 cursor-pointer group transition-all">
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface truncate max-w-[150px]">Testes E2E com Playwright</span>
+<span class="text-[9px] font-mono px-1 rounded text-on-surface-variant">5 dias</span>
+</div>
+<div class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span class="truncate text-[11px] font-mono text-secondary">qwen2.5-coder</span>
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">more_horiz</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Footer (Storage & Telemetry) -->
+<div class="p-space-md bg-surface-container flex flex-col gap-space-sm select-none">
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">hard_drive</span>
+<span>Espaço em Disco</span>
+</span>
+<span class="font-mono text-label-sm font-label-sm text-on-surface">34.2 GB / 250 GB</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 14%"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<button class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary flex items-center gap-1 transition-colors" title="Importar ou exportar logs">
+<span class="material-symbols-outlined text-[14px]">import_export</span>
+<span>Logs JSON/MD</span>
+</button>
+<span class="text-[10px] font-mono text-secondary px-1.5 py-0.5 rounded bg-surface-container-high">v1.14-core</span>
+</div>
+</div>
+</aside>
+<!-- Main Chat Studio Canvas -->
+<section class="flex-1 flex flex-col h-full bg-surface relative min-w-0 overflow-hidden">
+<!-- Internal Chat Canvas Header / Model Selector Bar -->
+<header class="h-14 px-space-lg flex items-center justify-between bg-surface-container-lowest z-10 shrink-0 select-none">
+<!-- Model Selection Trigger -->
+<div class="flex items-center gap-space-md">
+<div class="relative group" id="model-dropdown-container">
+<button class="h-9 px-space-md bg-surface-container hover:bg-surface-container-high rounded-xl flex items-center gap-space-sm shadow-sm transition-all" id="model-selector-btn">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary shadow-sm"></span>
+<div class="flex flex-col text-left">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface">llama3.2:latest</span>
+<span class="bg-secondary-container/40 text-secondary font-label-sm text-label-sm px-1.5 py-0.2 rounded font-mono">Local Ready</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] ml-1">expand_more</span>
+</button>
+<!-- Dropdown Flyout -->
+<div class="hidden absolute top-11 left-0 w-80 bg-surface-container-high rounded-xl p-space-sm shadow-xl z-50 flex flex-col gap-1" id="model-dropdown-menu">
+<div class="px-2 py-1 text-label-sm font-label-sm text-on-surface-variant uppercase font-mono tracking-wider">Modelos Disponíveis</div>
+<div class="p-2 rounded-lg bg-surface-container text-on-surface flex items-center justify-between cursor-pointer">
+<div>
+<div class="font-label-lg text-label-lg flex items-center gap-1.5">
+<span>llama3.2:latest</span>
+<span class="text-secondary text-[11px] font-mono bg-secondary-container/30 px-1 rounded">4.2GB VRAM</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Llama 3.2 3B Instruct • 128k ctx</div>
+</div>
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+</div>
+<div class="p-2 rounded-lg hover:bg-surface-container text-on-surface flex items-center justify-between cursor-pointer transition-colors">
+<div>
+<div class="font-label-lg text-label-lg flex items-center gap-1.5">
+<span>qwen2.5-coder:32b</span>
+<span class="text-tertiary text-[11px] font-mono bg-surface-variant px-1 rounded">19.1GB System</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Qwen Code Specialization</div>
+</div>
+</div>
+<div class="p-2 rounded-lg hover:bg-surface-container text-on-surface flex items-center justify-between cursor-pointer transition-colors">
+<div>
+<div class="font-label-lg text-label-lg flex items-center gap-1.5">
+<span>llava:13b-v1.6</span>
+<span class="text-secondary text-[11px] font-mono bg-surface-variant px-1 rounded">Vision Ready</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Multi-modal Visual Reasoning</div>
+</div>
+</div>
+<div class="mt-1 pt-1 bg-surface-variant/40 flex items-center justify-between px-2 py-1.5 rounded-lg">
+<span class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary">cloud_sync</span>
+<span>Ollama Cloud Endpoint</span>
+</span>
+<button class="font-mono text-[10px] text-primary hover:underline">Configurar</button>
+</div>
+</div>
+</div>
+<div class="h-4 w-px bg-outline-variant/30"></div>
+<!-- Parameter Snapshot Badges -->
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="bg-surface-container px-2 py-1 rounded font-mono text-[11px]">temp: 0.7</span>
+<span class="bg-surface-container px-2 py-1 rounded font-mono text-[11px]">top_p: 0.9</span>
+<span class="bg-surface-container px-2 py-1 rounded font-mono text-[11px]">ctx: 8k/128k</span>
+</div>
+</div>
+<!-- Canvas Controls -->
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<button class="h-8 px-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center gap-1.5 transition-colors" id="param-drawer-btn" title="Ajustes de Parâmetros de Inferência">
+<span class="material-symbols-outlined text-[16px] text-primary">tune</span>
+<span class="font-label-sm text-label-sm font-mono">Parâmetros</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center transition-colors" title="Fixar Janela no Topo">
+<span class="material-symbols-outlined text-[16px]">push_pin</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-error-container hover:text-on-error flex items-center justify-center transition-colors" title="Limpar Contexto da Conversa">
+<span class="material-symbols-outlined text-[16px]">delete_sweep</span>
+</button>
+</div>
+</header>
+<!-- Center Empty State Canvas Area -->
+<div class="flex-1 overflow-y-auto px-space-lg flex flex-col items-center justify-center relative select-none pb-28">
+<!-- Subtle Ambient Radial Spotlight behind Brand -->
+<div class="absolute w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none -top-10"></div>
+<div class="max-w-3xl w-full flex flex-col items-center text-center gap-space-lg z-10">
+<!-- Geometric Emblem and Studio Title -->
+<div class="flex flex-col items-center gap-space-sm">
+<div class="w-14 h-14 rounded-2xl bg-surface-container flex items-center justify-center shadow-lg relative group">
+<svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+</div>
+</div>
+<div class="space-y-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Ollama Chat Studio Desktop</h1>
+<div class="flex items-center justify-center gap-2 flex-wrap font-label-md text-label-md text-on-surface-variant font-mono">
+<span class="flex items-center gap-1 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>127.0.0.1:11434</span>
+</span>
+<span>•</span>
+<span>VRAM Livre: <strong class="text-on-surface font-semibold">6.8 GB</strong> / 12 GB</span>
+<span>•</span>
+<span>8 Modelos Instalados</span>
+</div>
+</div>
+</div>
+<!-- Quick Action / Capability Bento Cards (3 Units) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md w-full text-left mt-2">
+<!-- Card 1: Vision Multi-modal -->
+<div class="p-space-lg rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex flex-col justify-between cursor-pointer group shadow-sm">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</div>
+<span class="text-[10px] font-mono text-secondary bg-surface-container-high px-1.5 py-0.5 rounded font-label-sm">LLaVA / BakLLaVA</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Visão &amp; Análise de Imagem</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Carregue diagramas técnicos, capturas de UI ou fluxogramas para extração de dados e OCR.</p>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="font-mono text-[11px] text-on-surface-variant/80">Arraste PNG, JPG ou WebP</span>
+<span class="material-symbols-outlined text-[16px] text-primary group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Card 2: TypeScript & Code Audit -->
+<div class="p-space-lg rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex flex-col justify-between cursor-pointer group shadow-sm">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">code</span>
+</div>
+<span class="text-[10px] font-mono text-primary bg-surface-container-high px-1.5 py-0.5 rounded font-label-sm">Qwen2.5-Coder</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors">Auditoria TypeScript</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Validação estrita de tipagem, identificação de memory leaks e refatoração de rotinas assíncronas.</p>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="font-mono text-[11px] text-on-surface-variant/80">Comandos AST &amp; LSP</span>
+<span class="material-symbols-outlined text-[16px] text-secondary group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Card 3: Function Calling / MCP Tools -->
+<div class="p-space-lg rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex flex-col justify-between cursor-pointer group shadow-sm">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+</div>
+<span class="text-[10px] font-mono text-tertiary bg-surface-container-high px-1.5 py-0.5 rounded font-label-sm">HITL Perms</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-tertiary transition-colors">Tools &amp; Execuções Locais</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Interaja com arquivos locais e APIs de shell com confirmação explícita de segurança.</p>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="font-mono text-[11px] text-on-surface-variant/80">Zero Hallucination Gate</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Micro Visual Telemetry Sparkline Badge -->
+<div class="flex items-center gap-space-md py-1.5 px-space-md bg-surface-container-low rounded-full text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 font-mono text-[11px]">
+<span class="material-symbols-outlined text-[14px] text-secondary">speed</span>
+              Taxa de geração média: <strong class="text-on-surface">54.2 tok/s</strong>
+</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="flex items-center gap-1 font-mono text-[11px]">
+<span class="material-symbols-outlined text-[14px] text-primary">memory</span>
+              Offload GPU: <strong class="text-on-surface">33/33 Camadas</strong>
+</span>
+</div>
+</div>
+</div>
+<!-- Centered Floating Multimodal Composer (20px radius, surface #181d25) -->
+<footer class="absolute bottom-4 left-0 right-0 px-space-lg flex flex-col items-center justify-end pointer-events-none z-30">
+<div class="w-full max-w-3xl pointer-events-auto bg-surface-container rounded-[20px] shadow-2xl p-space-sm flex flex-col gap-space-xs transition-all duration-200">
+<!-- Expandable Textarea Field -->
+<div class="w-full px-space-sm pt-1">
+<textarea class="w-full bg-transparent resize-none font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none leading-relaxed" id="composer-textarea" placeholder="Pergunte algo, arraste imagens ou digite @ para ferramentas..." rows="2"></textarea>
+</div>
+<!-- Bottom Action Deck & Execution Pipeline -->
+<div class="flex items-center justify-between px-space-xs pt-1 select-none">
+<!-- Left Deck: Attachments & Modalities -->
+<div class="flex items-center gap-1">
+<button class="h-8 px-2 rounded-lg hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center gap-1 transition-colors" title="Anexar imagem para inferência visual (LLaVA)">
+<span class="material-symbols-outlined text-[18px]">add_photo_alternate</span>
+<span class="font-label-sm text-label-sm hidden sm:inline">Visão</span>
+</button>
+<button class="h-8 w-8 rounded-lg hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="Entrada por voz (Whisper Local STT)">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+</button>
+<div class="h-4 w-px bg-outline-variant/30 mx-1"></div>
+<!-- Thought/Reasoning Mode Selector -->
+<button class="h-7 px-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface-variant flex items-center gap-1.5 transition-colors" id="thought-mode-toggle">
+<span class="material-symbols-outlined text-[14px] text-tertiary">psychology</span>
+<span class="font-mono text-[11px]">Raciocínio: Deep</span>
+</button>
+</div>
+<!-- Right Deck: Context Gauge & Send Button -->
+<div class="flex items-center gap-space-md">
+<!-- Token Usage Gauge -->
+<div class="flex items-center gap-1.5 text-on-surface-variant font-mono text-[11px]" title="Contexto atual / limite de hardware">
+<span class="material-symbols-outlined text-[14px]">data_usage</span>
+<span>0 / 128k</span>
+</div>
+<!-- Primary Send Action Trigger -->
+<button class="w-9 h-9 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center hover:opacity-90 active:scale-95 shadow-md transition-all" id="send-prompt-btn" title="Enviar Prompt (Enter)">
+<span class="material-symbols-outlined text-[18px]">arrow_upward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Privacy & Offline Assurance Notice -->
+<div class="mt-2 text-center text-on-surface-variant/70 font-mono text-[10px] tracking-tight pointer-events-auto">
+          Modelos locais executados 100% offline via Ollama. Nenhum dado sai da sua máquina sem autorização.
+        </div>
+</footer>
+</section>
+</div>
+</div>
+<script>
+  // Simple micro-interactions for Model Selector Dropdown & Sidebar Toggling
+  const modelBtn = document.getElementById('model-selector-btn');
+  const modelMenu = document.getElementById('model-dropdown-menu');
+  const toggleSidebarBtn = document.getElementById('toggle-sidebar-btn');
+  const sidebar = document.getElementById('session-sidebar');
+
+  if (modelBtn && modelMenu) {
+    modelBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      modelMenu.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', () => {
+      if (!modelMenu.classList.contains('hidden')) {
+        modelMenu.classList.add('hidden');
+      }
+    });
+  }
+
+  if (toggleSidebarBtn && sidebar) {
+    toggleSidebarBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('-ml-64');
+    });
+  }
+</script></main></div></body></html>

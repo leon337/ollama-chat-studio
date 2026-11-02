@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "background": "#101319", "surface-container-low": "#191c21", "surface-variant": "#32353a", "on-primary-container": "#003b7e", "surface-tint": "#abc7ff", "error-container": "#93000a", "surface-container-highest": "#32353a", "error": "#ffb4ab", "on-primary-fixed-variant": "#004590", "inverse-on-surface": "#2e3036", "surface-dim": "#101319", "primary-fixed-dim": "#abc7ff", "on-secondary-fixed": "#002114", "on-primary-fixed": "#001b3f", "primary-fixed": "#d7e2ff", "on-tertiary-fixed": "#281800", "primary-container": "#77a8ff", "tertiary-container": "#d59f45", "on-tertiary-fixed-variant": "#614000", "on-secondary-fixed-variant": "#005138", "inverse-surface": "#e1e2e9", "outline": "#8c909d", "secondary-fixed": "#86f8c5", "tertiary-fixed-dim": "#f6bd60", "on-primary": "#002f66", "surface-container": "#1d2025", "on-error": "#690005", "on-secondary": "#003825", "secondary-fixed-dim": "#68dbaa", "primary": "#abc7ff", "on-surface-variant": "#c2c6d3", "surface-container-high": "#272a2f", "surface": "#101319", "secondary-container": "#26a477", "surface-container-lowest": "#0b0e13", "inverse-primary": "#235daf", "on-tertiary-container": "#543800", "on-background": "#e1e2e9", "on-error-container": "#ffdad6", "surface-bright": "#36393f", "on-tertiary": "#432c00", "outline-variant": "#424751", "on-secondary-container": "#003120", "tertiary": "#f6bd60", "on-surface": "#e1e2e9", "secondary": "#68dbaa", "tertiary-fixed": "#ffddaf" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "margin-stage": "1.5rem", "gutter-compact": "0.5rem", "space-lg": "1rem", "space-xl": "1.5rem", "space-sm": "0.5rem", "margin": "1rem", "gutter": "1rem", "space-md": "0.75rem" }, "fontFamily": { "label-lg": [ "Inter" ], "headline-sm": [ "Inter" ], "label-md": [ "JetBrains Mono" ], "body-sm": [ "Inter" ], "headline-lg": [ "Inter" ], "body-lg": [ "Inter" ], "label-sm": [ "JetBrains Mono" ], "headline-md": [ "Inter" ], "body-md": [ "Inter" ] }, "fontSize": { "label-lg": [ "14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "600" } ], "headline-sm": [ "15px", { "lineHeight": "20px", "letterSpacing": "-0.005em", "fontWeight": "600" } ], "label-md": [ "12.5px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "500" } ], "body-sm": [ "12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" } ], "headline-lg": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "body-lg": [ "15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" } ], "label-sm": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" } ], "headline-md": [ "17px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-md": [ "14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased select-none"><header class="fixed top-0 left-0 right-0 h-10 bg-surface-container-lowest z-50 flex items-center justify-between px-space-md select-none border-b border-outline-variant/30"><div class="flex items-center gap-space-sm"><div class="flex items-center gap-1.5 pr-space-md"><div class="w-3 h-3 rounded-full bg-error/80"></div><div class="w-3 h-3 rounded-full bg-tertiary/80"></div><div class="w-3 h-3 rounded-full bg-secondary/80"></div></div><div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm"><span class="material-symbols-outlined text-primary text-[14px]">terminal</span><span class="tracking-normal">Ollama Chat Studio v1.0 — Local &amp; Cloud</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container border border-secondary-container/40"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-sm text-label-sm text-secondary tracking-tight font-mono">Ollama 127.0.0.1:11434 • Online</span></div><div class="flex items-center gap-space-xs text-on-surface-variant"><button class="w-6 h-6 flex items-center justify-center rounded hover:bg-surface-variant hover:text-on-surface" title="Minimize"><span class="material-symbols-outlined text-[14px]">minimize</span></button><button class="w-6 h-6 flex items-center justify-center rounded hover:bg-surface-variant hover:text-on-surface" title="Maximize"><span class="material-symbols-outlined text-[14px]">crop_square</span></button><button class="w-6 h-6 flex items-center justify-center rounded hover:bg-error-container hover:text-on-error-container" title="Close"><span class="material-symbols-outlined text-[14px]">close</span></button><div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[16px]">person</span></div></div></div></header><aside class="fixed left-0 top-10 bottom-0 w-14 bg-surface-container-low z-40 flex flex-col justify-between items-center py-space-md border-r border-outline-variant/30"><div class="flex flex-col items-center gap-space-sm w-full"><button class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shadow-sm hover:opacity-90 transition-opacity" title="New Session"><span class="material-symbols-outlined text-[20px]">add</span></button><div class="w-8 h-[1px] bg-outline-variant/30 my-space-xs"></div><nav class="flex flex-col items-center gap-space-xs w-full" data-active-classes="bg-primary-container text-on-primary-container"><a aria-current="page" class="w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-primary-container text-on-primary-container" data-path="chat-studio" href="#" title="Active Workspace"><span class="material-symbols-outlined text-[20px]">chat</span></a><a class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="chat-history" href="#" title="Conversations Log"><span class="material-symbols-outlined text-[20px]">history</span></a><a class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="model-hub" href="#" title="Local &amp; Cloud Models"><span class="material-symbols-outlined text-[20px]">neurology</span></a><a class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="tools-mcp" href="#" title="Tools &amp; Function Calling"><span class="material-symbols-outlined text-[20px]">build</span></a><a class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="audio-multimodal" href="#" title="Speech &amp; Vision Pipelines"><span class="material-symbols-outlined text-[20px]">graphic_eq</span></a><a class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="server-settings" href="#" title="Daemon &amp; Compute Config"><span class="material-symbols-outlined text-[20px]">tune</span></a></nav></div><div class="flex flex-col items-center gap-space-sm w-full"><div class="w-2 h-2 rounded-full bg-secondary" title="Hardware Telemetry OK"></div><div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center border border-outline-variant/40"><span class="material-symbols-outlined text-primary text-[18px]">memory</span></div></div></aside><div class="pl-14"><main class="relative pt-10 min-h-screen bg-surface w-full" id="main-workspace"><div class="flex flex-col w-full h-[calc(100vh-2.5rem)] overflow-hidden bg-background text-on-background select-none">
+<!-- Dynamic Sub-Header / Streaming Telemetry Strip -->
+<header class="h-14 px-space-xl bg-surface-container-low flex items-center justify-between shrink-0 shadow-sm z-20">
+<div class="flex items-center gap-space-lg min-w-0">
+<!-- Active Model Meta -->
+<div class="flex items-center gap-space-sm bg-surface-container px-space-md py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">visibility</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold tracking-tight">llava:13b</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-variant text-on-surface-variant">Vision + Chat</span>
+</div>
+</div>
+</div>
+<!-- Live Stream Cadence Telemetry -->
+<div class="hidden md:flex items-center gap-space-md">
+<div class="flex items-center gap-2 px-space-md py-1 rounded-full bg-secondary-container/20 text-secondary">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+<span class="font-label-sm text-label-sm tracking-wide font-mono">STREAMING ATIVO</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[16px]">speed</span>
+<span class="text-on-surface font-semibold font-mono">42.8</span>
+<span class="text-on-surface-variant">tokens/s</span>
+</div>
+<div class="w-1 h-3 rounded-full bg-surface-variant"></div>
+<!-- Token Usage Context Bar -->
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-tertiary">data_thresholding</span>
+<span>Contexto:</span>
+<span class="text-on-surface font-mono font-medium">3.4k / 32k</span>
+<div class="w-20 h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full transition-all duration-300" style="width: 10.6%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Stream Controls -->
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-label-md font-label-md transition-colors shadow-sm" id="btn-tts">
+<span class="material-symbols-outlined text-primary text-[18px]">volume_up</span>
+<span class="hidden sm:inline">Ouvir Resposta (TTS Local)</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-error-container text-on-error-container text-label-md font-label-md font-semibold hover:opacity-95 transition-all shadow-md group" id="btn-stop-generation">
+<span class="w-2.5 h-2.5 rounded-xs bg-error animate-pulse"></span>
+<span>Parar Geração</span>
+<span class="hidden sm:inline font-mono text-label-sm opacity-70 ml-1">Esc</span>
+</button>
+</div>
+</header>
+<!-- Central Multi-turn Scroll Area -->
+<div class="flex-1 overflow-y-auto px-space-lg sm:px-space-xl py-space-xl flex flex-col items-center gap-space-xl" id="chat-scroller">
+<div class="w-full max-w-[840px] flex flex-col gap-space-xl">
+<!-- Turn 1: User Message with Multimodal Vision Payload -->
+<article class="flex flex-col items-end gap-space-sm w-full group">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm mr-1">
+<span class="font-mono text-primary">você</span>
+<span>•</span>
+<time datetime="14:22:04">14:22:04</time>
+</div>
+<div class="max-w-[92%] sm:max-w-[80%] rounded-xl bg-surface-container-high text-on-surface p-space-lg flex flex-col gap-space-md shadow-md">
+<!-- Multimodal Vision Card Inspection Deck -->
+<div class="rounded-lg bg-surface-container-lowest p-space-sm flex flex-col gap-space-sm overflow-hidden shadow-inner">
+<div class="relative w-full h-44 sm:h-52 rounded-md overflow-hidden bg-surface-container-low group/img cursor-zoom-in">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105" data-alt="Macro photography of an electronic PCB circuit board with surface-mount capacitors, dark green substrate, U3 voltage regulator IC showing slight thermal discoloration, gold-plated contacts under crisp laboratory spotlighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwMEtR1t7BYYWxySQj_ONlTNSBHjZue-42eWdM10kZAPKP4D6qSyPFB_xc6oGR3_gk8KfKnIsecQYHV7OqrM1V-ljv6M3CiKTyvWNlkUka76fWRv9VG62Uj8dHYNmtFgdR32mhaOXHqo9RrDnuE2VywC8oiTZM30_ZazjNeOwOUWWyhPuTDJrfLeFK7FiDOzb-cEHupAJmCNbcby1xHN7VXwSULhBdnxvz11xcOI-I"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"></div>
+<!-- Image Meta Overlays -->
+<div class="absolute top-2 left-2 flex items-center gap-1.5 bg-surface-container-lowest/90 px-2 py-0.5 rounded text-on-surface text-label-sm font-label-sm shadow-sm backdrop-blur">
+<span class="material-symbols-outlined text-secondary text-[14px]">center_focus_strong</span>
+<span>RGB 8-bit Raw</span>
+</div>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between text-label-sm font-label-sm">
+<span class="font-mono text-primary tracking-tight truncate">circuito_pcb_debug.png</span>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-mono shrink-0">
+<span>1.2 MB</span>
+<span>•</span>
+<span>1920×1080</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Prompt Payload Text -->
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+            Identifique os componentes principais desta placa e verifique se há sobreaquecimento visível no regulador de tensão.
+          </p>
+</div>
+</article>
+<!-- Turn 2: Ollama Assistant Streaming Message -->
+<article class="flex flex-col items-start gap-space-sm w-full">
+<!-- Model Identity & Fast First-Token Metrics -->
+<div class="flex flex-wrap items-center gap-space-sm text-label-sm font-label-sm text-on-surface-variant ml-1">
+<div class="flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">neurology</span>
+<span>LLaVA 13B (Q4_K_M)</span>
+</div>
+<span>•</span>
+<span class="flex items-center gap-1 font-mono text-secondary">
+<span class="material-symbols-outlined text-[13px]">bolt</span>
+<span>0.4s até o 1º token</span>
+</span>
+<span>•</span>
+<span class="font-mono">Local daemon via GPU (Metal/ROCm)</span>
+</div>
+<!-- Assistant Slate Frame -->
+<div class="w-full rounded-xl bg-surface-container p-space-lg sm:p-space-xl flex flex-col gap-space-lg shadow-md relative">
+<!-- Collapsible Reasoning & Chain-of-Thought Scratchpad -->
+<div class="rounded-lg bg-surface-container-low overflow-hidden transition-all duration-300">
+<button class="w-full px-space-md py-2.5 flex items-center justify-between text-left text-on-surface-variant hover:bg-surface-container-high transition-colors" id="toggle-thinking">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary text-[18px] animate-spin" style="animation-duration: 4s;">psychology</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold tracking-tight">Raciocínio &amp; Visão Computacional</span>
+<span class="font-label-sm text-label-sm text-tertiary font-mono bg-tertiary-container/30 px-2 py-0.5 rounded">Processando Tensores</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] transition-transform duration-200" id="thinking-chevron">expand_less</span>
+</button>
+<div class="p-space-md pt-0 font-label-md text-label-md text-on-surface-variant font-mono space-y-1.5 leading-relaxed bg-surface-container-low" id="thinking-content">
+<p class="text-tertiary/90">&lt;think&gt;</p>
+<p class="pl-space-md">1. Decodificando matriz de pixels: Dimensões validadas (1920x1080). Extraindo features via CLIP-ViT-L/14 patch 14.</p>
+<p class="pl-space-md">2. Detecção de contornos no quadrante central superior (Q2): Identificado encapsulamento SOT-223 / DPAK compatível com IC U3.</p>
+<p class="pl-space-md">3. Análise colorimétrica no PCB: Constatado escurecimento sutil da máscara de solda ao redor dos pinos 2 e GND (dissipador térmico local). Sinal clássico de estresse térmico prolongado (&gt;85°C).</p>
+<p class="pl-space-md">4. Formulando resposta estruturada com rotina de automação diagnóstica.</p>
+<p class="text-tertiary/90">&lt;/think&gt;</p>
+</div>
+</div>
+<!-- Live Markdown Body Output -->
+<div class="flex flex-col gap-space-md font-body-lg text-body-lg text-on-surface leading-relaxed">
+<div class="flex items-center gap-space-xs text-primary font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<h3>Relatório de Inspeção Óptica e Térmica</h3>
+</div>
+<p>
+              A análise da imagem enviada confirma a topologia de regulação linear com sinais evidentes de <strong class="text-error font-semibold">fadiga térmica localizada</strong>. Abaixo estão os apontamentos identificados na placa:
+            </p>
+<ul class="space-y-space-sm pl-space-md">
+<li class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>Regulador de Tensão (U3 - AMS1117 / Compatível):</strong> O substrato FR-4 exibe variação de tonalidade amarelada ao redor da aleta de aterramento, indicando que a dissipação passiva está operando no limite seguro de junção.</span>
+</li>
+<li class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>Capacitores Eletrolíticos de Filtragem (C1, C4):</strong> Topos planos e selagens inferiores intactas, sem sinais visíveis de abaulamento ou vazamento de eletrólito.</span>
+</li>
+<li class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-tertiary text-[18px] shrink-0 mt-0.5">warning</span>
+<span><strong>Resistores de Derivação (Shunt SMD):</strong> Serigrafia preservada, contudo a solda do pad inferior apresenta aspecto fosco compatível com refluxo secundário por calor radiante.</span>
+</li>
+</ul>
+<p>
+              Para monitorar ou auditar a leitura térmica contínua caso este módulo esteja acoplado à interface serial ou barramento I2C, você pode disparar a seguinte rotina de amostragem automatizada:
+            </p>
+<!-- Monospace Code Block with Rich Desktop Header Rails -->
+<div class="rounded-xl overflow-hidden bg-surface-container-lowest shadow-md my-space-xs">
+<!-- Code Rail Header -->
+<div class="px-space-md py-2 bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-space-sm font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[16px]">code</span>
+<span class="text-on-surface font-semibold font-mono">telemetry_sensor.py</span>
+<span class="text-on-surface-variant font-mono text-label-sm">(Python 3.11 • 218 tokens)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors" id="btn-copy-code">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+<span id="copy-label">Copiar Código</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-variant hover:bg-primary hover:text-on-primary text-on-surface font-label-sm text-label-sm transition-all group/btn" id="btn-run-tool">
+<span class="material-symbols-outlined text-tertiary group-hover/btn:text-on-primary text-[15px]">play_arrow</span>
+<span>Executar via Tool local</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container text-on-tertiary-container font-mono text-[9px] uppercase tracking-wider font-bold">Requer Permissão</span>
+</button>
+</div>
+</div>
+<!-- Syntax Body -->
+<pre class="p-space-lg overflow-x-auto font-label-md text-label-md text-on-surface font-mono leading-relaxed bg-surface-container-lowest"><code><span class="text-outline">import</span> <span class="text-primary">serial</span>
+<span class="text-outline">import</span> <span class="text-primary">time</span>
+
+<span class="text-outline">def</span> <span class="text-secondary">monitor_vreg_thermal</span>(port: <span class="text-tertiary">str</span> = <span class="text-tertiary">"/dev/ttyUSB0"</span>, baud: <span class="text-tertiary">int</span> = <span class="text-tertiary">115200</span>):
+    <span class="text-on-surface-variant"># Inicia handshake com a bancada de testes de bancada</span>
+    ser = serial.Serial(port, baud, timeout=<span class="text-tertiary">1.0</span>)
+    <span class="text-outline">print</span>(<span class="text-tertiary">f"[*] Conectado ao nó de instrumentação em {port}"</span>)
+
+    <span class="text-outline">while</span> <span class="text-primary">True</span>:
+        ser.write(<span class="text-tertiary">b"GET_THERMAL_U3\n"</span>)
+        raw = ser.readline().decode().strip()
+        <span class="text-outline">if</span> raw.startswith(<span class="text-tertiary">"TEMP:"</span>):
+            celsius = <span class="text-tertiary">float</span>(raw.split(<span class="text-tertiary">":"</span>)[<span class="text-tertiary">1</span>])
+            <span class="text-outline">if</span> celsius &gt; <span class="text-error">85.0</span>:
+                <span class="text-outline">print</span>(<span class="text-tertiary">f"[ALERTA CRÍTICO] Junção U3 em {celsius}°C - Throttling necessário!"</span>)
+        time.sleep(<span class="text-tertiary">0.2</span>)</code></pre>
+</div>
+<!-- Trailing Paragrah with Active Streaming Pulsing Caret -->
+<p class="flex items-baseline flex-wrap">
+<span>Recomendo adicionar um pequeno dissipador de alumínio autoadesivo sobre o tab central do regulador ou substituir o indutor adjacente para minorar perdas por histerese</span>
+<span class="inline-block w-2.5 h-4 ml-1 bg-primary align-middle rounded-xs animate-pulse" title="Inference streaming active"></span>
+</p>
+</div>
+<!-- Bottom Action Deck & Full Run Telemetry -->
+<footer class="pt-space-md flex flex-wrap items-center justify-between gap-space-md bg-surface-container-low/60 -mx-space-lg sm:-mx-space-xl -mb-space-lg sm:-mb-space-xl p-space-md sm:px-space-xl rounded-b-xl">
+<!-- Message Utilities -->
+<div class="flex items-center gap-space-xs">
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Copiar resposta completa">
+<span class="material-symbols-outlined text-[18px]">copy_all</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Gerar Áudio (TTS Piper Local)">
+<span class="material-symbols-outlined text-[18px]">speech_to_text</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Regenerar resposta">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Exportar para Markdown">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+<!-- Granular Engine Metrics Benchmark Strip -->
+<div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant font-mono">
+<div class="flex items-center gap-1" title="Velocidade de geração de tokens">
+<span class="material-symbols-outlined text-secondary text-[14px]">bolt</span>
+<span>42.8 t/s</span>
+</div>
+<span>•</span>
+<div class="flex items-center gap-1" title="Duração da avaliação de prompt">
+<span>Prompt eval: 84ms</span>
+</div>
+<span>•</span>
+<div class="flex items-center gap-1" title="Duração total da inferência">
+<span>Total: 5.12s</span>
+</div>
+</div>
+</footer>
+</div>
+</article>
+</div>
+</div>
+<!-- Bottom Floating Multimodal Composer Rail -->
+<footer class="p-space-lg sm:p-space-xl pt-0 flex justify-center w-full shrink-0 z-30">
+<div class="w-full max-w-[840px] bg-surface-container rounded-2xl shadow-xl p-space-md flex flex-col gap-space-sm relative">
+<!-- Staged Attachment Tray -->
+<div class="flex items-center gap-space-sm overflow-x-auto pb-1">
+<div class="flex items-center gap-space-sm bg-surface-container-high px-space-md py-1.5 rounded-xl text-on-surface font-label-sm text-label-sm shadow-sm shrink-0">
+<div class="w-6 h-6 rounded bg-surface-container-lowest flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-primary text-[14px]">image</span>
+</div>
+<span class="font-mono text-on-surface truncate max-w-[180px]">circuito_pcb_debug.png</span>
+<span class="text-on-surface-variant font-mono">1.2MB</span>
+<button class="text-on-surface-variant hover:text-error transition-colors ml-1">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant text-label-sm font-label-sm px-2 py-1 rounded bg-surface-container-low shrink-0">
+<span class="material-symbols-outlined text-secondary text-[14px]">mic</span>
+<span>Buffer de Voz: Pronto (16kHz PCM)</span>
+</div>
+</div>
+<!-- Input Field Area -->
+<div class="flex items-end gap-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant pb-2 shrink-0">
+<button class="w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Anexar Imagem ou Arquivo">
+<span class="material-symbols-outlined text-[20px]">add_photo_alternate</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Parâmetros de Inferência">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+<!-- Expanding Input Mock -->
+<div class="flex-1 min-w-0 py-2">
+<textarea class="w-full bg-transparent resize-none outline-none font-body-lg text-body-lg text-on-surface placeholder:text-on-surface-variant/60 max-h-32" placeholder="Digite uma mensagem ou pergunte sobre o anexo... (Shift+Enter para nova linha)" rows="1">Analise também a impedância estimada dos traços próximos ao pino 1.</textarea>
+</div>
+<!-- Dual Action Triggers: Stop Current Stream / Voice Input Active Sine -->
+<div class="flex items-center gap-space-xs shrink-0 pb-1">
+<!-- Voice Audio Sine Waveform Trigger Indicator -->
+<button class="flex items-center gap-1.5 px-3 h-10 rounded-xl bg-surface-container-high hover:bg-surface-bright text-secondary transition-all" title="Microfone Ativo (VAD Local Ativado)">
+<span class="material-symbols-outlined text-[18px]">graphic_eq</span>
+<!-- Mini Sine Bars SVG Animation -->
+<div class="flex items-center gap-0.5 h-3">
+<span class="w-0.5 h-full bg-secondary rounded-full animate-bounce" style="animation-delay: 0.1s"></span>
+<span class="w-0.5 h-2 bg-secondary rounded-full animate-bounce" style="animation-delay: 0.25s"></span>
+<span class="w-0.5 h-3 bg-secondary rounded-full animate-bounce" style="animation-delay: 0.4s"></span>
+<span class="w-0.5 h-1.5 bg-secondary rounded-full animate-bounce" style="animation-delay: 0.15s"></span>
+</div>
+</button>
+<!-- Primary Stop Button -->
+<button class="w-10 h-10 rounded-xl bg-error-container text-on-error-container flex items-center justify-center hover:bg-error hover:text-on-error transition-all shadow-md group" id="btn-composer-stop" title="Interromper geração atual">
+<span class="w-3.5 h-3.5 rounded-xs bg-error group-hover:bg-on-error transition-colors"></span>
+</button>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script>
+  // Micro-interactions for desktop LLM interface
+  const toggleThinkingBtn = document.getElementById('toggle-thinking');
+  const thinkingContent = document.getElementById('thinking-content');
+  const thinkingChevron = document.getElementById('thinking-chevron');
+  const copyBtn = document.getElementById('btn-copy-code');
+  const copyLabel = document.getElementById('copy-label');
+  const stopBtn = document.getElementById('btn-stop-generation');
+  const compStopBtn = document.getElementById('btn-composer-stop');
+  const ttsBtn = document.getElementById('btn-tts');
+
+  // Accordion for Model Chain-of-Thought
+  if (toggleThinkingBtn && thinkingContent && thinkingChevron) {
+    toggleThinkingBtn.addEventListener('click', () => {
+      const isHidden = thinkingContent.classList.contains('hidden');
+      if (isHidden) {
+        thinkingContent.classList.remove('hidden');
+        thinkingChevron.style.transform = 'rotate(0deg)';
+      } else {
+        thinkingContent.classList.add('hidden');
+        thinkingChevron.style.transform = 'rotate(180deg)';
+      }
+    });
+  }
+
+  // Copy Code Snip with dynamic visual feedback
+  if (copyBtn && copyLabel) {
+    copyBtn.addEventListener('click', () => {
+      copyLabel.textContent = 'Copiado!';
+      copyBtn.classList.add('text-secondary');
+      setTimeout(() => {
+        copyLabel.textContent = 'Copiar Código';
+        copyBtn.classList.remove('text-secondary');
+      }, 1800);
+    });
+  }
+
+  // TTS Toggle Simulation
+  if (ttsBtn) {
+    ttsBtn.addEventListener('click', () => {
+      const icon = ttsBtn.querySelector('.material-symbols-outlined');
+      if (icon) {
+        if (icon.textContent === 'volume_up') {
+          icon.textContent = 'pause_circle';
+          ttsBtn.classList.add('bg-primary-container', 'text-on-primary-container');
+        } else {
+          icon.textContent = 'volume_up';
+          ttsBtn.classList.remove('bg-primary-container', 'text-on-primary-container');
+        }
+      }
+    });
+  }
+
+  // Auto-scroll chat view to bottom initially
+  const chatScroller = document.getElementById('chat-scroller');
+  if (chatScroller) {
+    chatScroller.scrollTop = chatScroller.scrollHeight;
+  }
+</script></main></div></body></html>

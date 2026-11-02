@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "background": "#101319", "surface-container-low": "#191c21", "surface-variant": "#32353a", "on-primary-container": "#003b7e", "surface-tint": "#abc7ff", "error-container": "#93000a", "surface-container-highest": "#32353a", "error": "#ffb4ab", "on-primary-fixed-variant": "#004590", "inverse-on-surface": "#2e3036", "surface-dim": "#101319", "primary-fixed-dim": "#abc7ff", "on-secondary-fixed": "#002114", "on-primary-fixed": "#001b3f", "primary-fixed": "#d7e2ff", "on-tertiary-fixed": "#281800", "primary-container": "#77a8ff", "tertiary-container": "#d59f45", "on-tertiary-fixed-variant": "#614000", "on-secondary-fixed-variant": "#005138", "inverse-surface": "#e1e2e9", "outline": "#8c909d", "secondary-fixed": "#86f8c5", "tertiary-fixed-dim": "#f6bd60", "on-primary": "#002f66", "surface-container": "#1d2025", "on-error": "#690005", "on-secondary": "#003825", "secondary-fixed-dim": "#68dbaa", "primary": "#abc7ff", "on-surface-variant": "#c2c6d3", "surface-container-high": "#272a2f", "surface": "#101319", "secondary-container": "#26a477", "surface-container-lowest": "#0b0e13", "inverse-primary": "#235daf", "on-tertiary-container": "#543800", "on-background": "#e1e2e9", "on-error-container": "#ffdad6", "surface-bright": "#36393f", "on-tertiary": "#432c00", "outline-variant": "#424751", "on-secondary-container": "#003120", "tertiary": "#f6bd60", "on-surface": "#e1e2e9", "secondary": "#68dbaa", "tertiary-fixed": "#ffddaf" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "margin-stage": "1.5rem", "gutter-compact": "0.5rem", "space-lg": "1rem", "space-xl": "1.5rem", "space-sm": "0.5rem", "margin": "1rem", "gutter": "1rem", "space-md": "0.75rem" }, "fontFamily": { "label-lg": [ "Inter" ], "headline-sm": [ "Inter" ], "label-md": [ "JetBrains Mono" ], "body-sm": [ "Inter" ], "headline-lg": [ "Inter" ], "body-lg": [ "Inter" ], "label-sm": [ "JetBrains Mono" ], "headline-md": [ "Inter" ], "body-md": [ "Inter" ] }, "fontSize": { "label-lg": [ "14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "600" } ], "headline-sm": [ "15px", { "lineHeight": "20px", "letterSpacing": "-0.005em", "fontWeight": "600" } ], "label-md": [ "12.5px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "500" } ], "body-sm": [ "12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" } ], "headline-lg": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "body-lg": [ "15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" } ], "label-sm": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" } ], "headline-md": [ "17px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-md": [ "14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased select-none"><header class="fixed top-0 left-0 right-0 h-10 bg-surface-container-lowest z-50 flex items-center justify-between px-space-md select-none border-b border-outline-variant/30"><div class="flex items-center gap-space-sm"><div class="flex items-center gap-1.5 pr-space-md"><div class="w-3 h-3 rounded-full bg-error/80"></div><div class="w-3 h-3 rounded-full bg-tertiary/80"></div><div class="w-3 h-3 rounded-full bg-secondary/80"></div></div><div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm"><span class="material-symbols-outlined text-primary text-[14px]">terminal</span><span class="tracking-normal">Ollama Chat Studio v1.0 — Local &amp; Cloud</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container border border-secondary-container/40"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-sm text-label-sm text-secondary tracking-tight font-mono">Ollama 127.0.0.1:11434 • Online</span></div><div class="flex items-center gap-space-xs text-on-surface-variant"><button class="w-6 h-6 flex items-center justify-center rounded hover:bg-surface-variant hover:text-on-surface" title="Minimize"><span class="material-symbols-outlined text-[14px]">minimize</span></button><button class="w-6 h-6 flex items-center justify-center rounded hover:bg-surface-variant hover:text-on-surface" title="Maximize"><span class="material-symbols-outlined text-[14px]">crop_square</span></button><button class="w-6 h-6 flex items-center justify-center rounded hover:bg-error-container hover:text-on-error-container" title="Close"><span class="material-symbols-outlined text-[14px]">close</span></button><div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[16px]">person</span></div></div></div></header><aside class="fixed left-0 top-10 bottom-0 w-14 bg-surface-container-low z-40 flex flex-col justify-between items-center py-space-md border-r border-outline-variant/30"><div class="flex flex-col items-center gap-space-sm w-full"><button class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shadow-sm hover:opacity-90 transition-opacity" title="New Session"><span class="material-symbols-outlined text-[20px]">add</span></button><div class="w-8 h-[1px] bg-outline-variant/30 my-space-xs"></div><nav class="flex flex-col items-center gap-space-xs w-full" data-active-classes="bg-primary-container text-on-primary-container"><a aria-current="page" class="w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-primary-container text-on-primary-container" data-path="chat-studio" href="#" title="Active Workspace"><span class="material-symbols-outlined text-[20px]">chat</span></a><a class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="chat-history" href="#" title="Conversations Log"><span class="material-symbols-outlined text-[20px]">history</span></a><a class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="model-hub" href="#" title="Local &amp; Cloud Models"><span class="material-symbols-outlined text-[20px]">neurology</span></a><a class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="tools-mcp" href="#" title="Tools &amp; Function Calling"><span class="material-symbols-outlined text-[20px]">build</span></a><a class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="audio-multimodal" href="#" title="Speech &amp; Vision Pipelines"><span class="material-symbols-outlined text-[20px]">graphic_eq</span></a><a class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="server-settings" href="#" title="Daemon &amp; Compute Config"><span class="material-symbols-outlined text-[20px]">tune</span></a></nav></div><div class="flex flex-col items-center gap-space-sm w-full"><div class="w-2 h-2 rounded-full bg-secondary" title="Hardware Telemetry OK"></div><div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center border border-outline-variant/40"><span class="material-symbols-outlined text-primary text-[18px]">memory</span></div></div></aside><div class="pl-14"><main class="relative pt-10 min-h-screen bg-surface w-full" id="main-workspace"><div class="flex flex-col w-full">
+<!-- Sub-header Compact Context Control Strip -->
+<div class="sticky top-0 z-30 flex items-center justify-between px-space-md py-space-sm bg-surface-container-low shadow-sm">
+<!-- Left: History Drawer Trigger & Active Model Selector -->
+<div class="flex items-center gap-space-sm min-w-0">
+<button class="w-9 h-9 rounded-lg flex items-center justify-center bg-surface-container hover:bg-surface-container-high text-on-surface transition-all active:scale-95" id="toggle-history-drawer" title="Toggle Sessions Panel (Cmd+H)">
+<span class="material-symbols-outlined text-[19px]">dock_to_left</span>
+</button>
+<!-- Compact Model Picker Badge Dropdown -->
+<div class="relative group">
+<button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" id="model-dropdown-trigger">
+<span class="material-symbols-outlined text-primary text-[17px]">neurology</span>
+<span class="font-label-md text-label-md font-medium tracking-tight truncate max-w-[130px]">qwen2.5:7b-coder</span>
+<span class="px-1 py-0.5 rounded bg-surface-variant text-on-surface-variant font-label-sm text-[10px] leading-none uppercase">Q4_K_M</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px] group-hover:translate-y-0.5 transition-transform">expand_more</span>
+</button>
+<!-- Dropdown Menu -->
+<div class="hidden absolute left-0 top-full mt-1.5 w-64 p-space-xs rounded-xl bg-surface-container-high shadow-xl z-50" id="model-dropdown-menu">
+<div class="px-space-sm py-1 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Active Instances</div>
+<button class="w-full flex items-center justify-between px-space-sm py-2 rounded-lg bg-primary-container/20 text-on-surface text-left font-label-md text-label-md">
+<span class="font-semibold text-primary">qwen2.5:7b-coder</span>
+<span class="font-label-sm text-label-sm text-secondary">Loaded</span>
+</button>
+<button class="w-full flex items-center justify-between px-space-sm py-2 rounded-lg hover:bg-surface-container text-on-surface text-left font-label-md text-label-md">
+<span>deepseek-r1:8b</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cold</span>
+</button>
+<button class="w-full flex items-center justify-between px-space-sm py-2 rounded-lg hover:bg-surface-container text-on-surface text-left font-label-md text-label-md">
+<span>llama3.3:70b-instruct</span>
+<span class="font-label-sm text-label-sm text-tertiary">Cloud</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right: Telemetry & Parameter Quick Toggles -->
+<div class="flex items-center gap-space-xs shrink-0">
+<!-- Latency & Token Metric -->
+<div class="hidden sm:flex items-center gap-space-xs px-2.5 py-1 rounded-md bg-surface-container text-secondary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span>12ms local</span>
+<span class="text-on-surface-variant/40">•</span>
+<span class="text-on-surface-variant">58.4 t/s</span>
+</div>
+<!-- Quick Parameter Drawer Trigger -->
+<button class="w-9 h-9 rounded-lg flex items-center justify-center bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all" id="toggle-params-btn" title="Parameters (Temperature, Context)">
+<span class="material-symbols-outlined text-[19px]">tune</span>
+</button>
+<!-- Compact Window Overflow Action -->
+<button class="w-9 h-9 rounded-lg flex items-center justify-center bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all" title="More Workspace Options">
+<span class="material-symbols-outlined text-[19px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Main Viewport Container with Slidable Overlays -->
+<div class="relative flex flex-1 w-full overflow-hidden">
+<!-- Retractable Slide-out Session History Drawer (Overlay mode for 900px viewport) -->
+<div class="absolute inset-y-0 left-0 z-40 w-72 bg-surface-container-low shadow-2xl -translate-x-full transition-transform duration-200 flex flex-col" id="session-drawer">
+<div class="flex items-center justify-between p-space-md bg-surface-container">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">history</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Sessions</span>
+</div>
+<button class="w-7 h-7 rounded flex items-center justify-center hover:bg-surface-variant text-on-surface-variant hover:text-on-surface" id="close-history-drawer">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Search in Drawer -->
+<div class="p-space-sm">
+<div class="flex items-center gap-space-xs px-2.5 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">search</span>
+<input class="w-full bg-transparent text-on-surface font-body-sm text-body-sm outline-none placeholder:text-on-surface-variant/60" placeholder="Filter chats (Cmd+K)" type="text"/>
+</div>
+</div>
+<!-- Sessions List -->
+<div class="flex-1 overflow-y-auto px-space-sm space-y-1">
+<div class="px-2 py-1 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Today</div>
+<div class="p-2.5 rounded-xl bg-surface-container-high text-on-surface flex items-start justify-between cursor-pointer">
+<div class="min-w-0 pr-2">
+<div class="font-headline-sm text-headline-sm text-primary truncate">CLI Command Optimization</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">ollama run qwen2.5-coder...</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0">14:22</span>
+</div>
+<div class="p-2.5 rounded-xl hover:bg-surface-container text-on-surface flex items-start justify-between cursor-pointer transition-colors">
+<div class="min-w-0 pr-2">
+<div class="font-headline-sm text-headline-sm truncate">FastAPI Streaming Bridge</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">Async generators and SSE token...</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0">11:05</span>
+</div>
+<div class="p-2.5 rounded-xl hover:bg-surface-container text-on-surface flex items-start justify-between cursor-pointer transition-colors">
+<div class="min-w-0 pr-2">
+<div class="font-headline-sm text-headline-sm truncate">Vision Tagging Pipeline</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">LLaVA multimodal prompt...</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0">09:41</span>
+</div>
+<div class="px-2 pt-3 pb-1 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Yesterday</div>
+<div class="p-2.5 rounded-xl hover:bg-surface-container text-on-surface flex items-start justify-between cursor-pointer transition-colors">
+<div class="min-w-0 pr-2">
+<div class="font-headline-sm text-headline-sm truncate">MCP File System Tools</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">Configuring local json specs...</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0">Yesterday</span>
+</div>
+</div>
+<!-- Drawer Footer -->
+<div class="p-space-sm bg-surface-container-lowest flex items-center justify-between">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>New Chat</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+</button>
+</div>
+</div>
+<!-- Scrim for Drawer -->
+<div class="hidden absolute inset-0 bg-background/70 backdrop-blur-sm z-30 transition-opacity" id="drawer-backdrop"></div>
+<!-- Conversational Stream (900px Optimized Stage) -->
+<div class="flex-1 flex flex-col h-[calc(100vh-104px)] overflow-y-auto px-space-md sm:px-space-xl py-space-md space-y-space-lg">
+<!-- Session Milestone Chip -->
+<div class="flex items-center justify-center">
+<div class="flex items-center gap-space-xs px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary">memory</span>
+<span>Daemon session initialised at 127.0.0.1:11434</span>
+<span>•</span>
+<span class="text-on-surface">VRAM: 5.6GB / 12GB allocated</span>
+</div>
+</div>
+<!-- Message Turn 1: USER -->
+<div class="flex flex-col items-end w-full space-y-1.5 pl-6 sm:pl-12">
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="font-semibold text-primary">developer@macbook</span>
+<span>•</span>
+<span>14:22:04</span>
+</div>
+<!-- User Bubble -->
+<div class="p-3.5 sm:p-4 rounded-2xl rounded-tr-sm bg-surface-container-high text-on-surface max-w-full sm:max-w-xl shadow-sm leading-relaxed">
+<p class="font-body-md text-body-md text-on-surface">
+            Como executo diretamente o modelo <code class="px-1.5 py-0.5 rounded bg-surface-container-lowest font-label-md text-label-md text-primary-fixed">qwen2.5:7b-coder</code> via Ollama CLI para processar um refactor inline num script Python sem abrir o REPL interativo? Me mostre a sintaxe exata e flags úteis.
+          </p>
+</div>
+</div>
+<!-- Message Turn 2: ASSISTANT -->
+<div class="flex flex-col items-start w-full space-y-2 pr-2 sm:pr-8">
+<!-- Assistant Meta Header -->
+<div class="flex items-center gap-2 font-label-sm text-label-sm">
+<span class="flex items-center gap-1 font-semibold text-secondary">
+<span class="material-symbols-outlined text-[14px]">terminal</span>
+            qwen2.5:7b-coder
+          </span>
+<span class="text-on-surface-variant">•</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary-container/20 text-secondary-fixed text-[10px] uppercase font-mono">Verified Local</span>
+<span class="text-on-surface-variant">•</span>
+<span class="text-on-surface-variant">420ms TTFT</span>
+</div>
+<!-- Assistant Slate Response Card -->
+<div class="w-full p-4 sm:p-5 rounded-2xl rounded-tl-sm bg-surface-container text-on-surface shadow-md space-y-4">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            Para invocar o modelo em modo não-interativo (one-shot batch) sem ingressar no console REPL, você passa o prompt diretamente como argumento de comando ou via pipeline <code class="px-1 py-0.5 rounded bg-surface-container-lowest font-label-md text-label-md text-primary">stdin</code>.
+          </p>
+<!-- Interactive Syntax Terminal Block -->
+<div class="rounded-xl overflow-hidden bg-surface-container-lowest shadow-inner">
+<div class="flex items-center justify-between px-space-md py-2 bg-surface-container-high text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error/70"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary/70"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary/70"></span>
+<span class="font-label-sm text-label-sm text-on-surface pl-2 font-mono">bash — one-shot invocation</span>
+</div>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container hover:bg-surface-variant text-on-surface font-label-sm text-label-sm transition-all active:scale-95" id="copy-code-btn">
+<span class="material-symbols-outlined text-[14px] text-primary" id="copy-icon">content_copy</span>
+<span id="copy-label">Copiar</span>
+</button>
+</div>
+<div class="p-3.5 sm:p-4 overflow-x-auto font-label-md text-label-md text-primary-fixed leading-6 font-mono">
+<span class="text-on-surface-variant select-none"># 1. Execução direta com prompt inline</span><br/>
+<span class="text-secondary">ollama run</span> qwen2.5:7b-coder <span class="text-tertiary">"refactor code: optimize memory in script.py"</span><br/><br/>
+<span class="text-on-surface-variant select-none"># 2. Pipeline unix lendo arquivo local via stdin</span><br/>
+              cat legacy_worker.py | <span class="text-secondary">ollama run</span> qwen2.5:7b-coder <span class="text-tertiary">"reescreva usando async/await sem dependências externas"</span>
+</div>
+</div>
+<!-- Structured Compact Comparison Table -->
+<div class="space-y-1.5">
+<div class="font-headline-sm text-headline-sm text-on-surface">Flags Essenciais de Controle CLI:</div>
+<div class="overflow-x-auto rounded-xl bg-surface-container-low shadow-sm">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-high text-on-surface font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-2.5 px-3">Flag / Parâmetro</th>
+<th class="py-2.5 px-3">Efeito</th>
+<th class="py-2.5 px-3">Impacto Local</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-container/50">
+<td class="py-2 px-3 font-label-md text-label-md text-primary font-mono whitespace-nowrap">--verbose</td>
+<td class="py-2 px-3 text-on-surface">Exibe telemetria de tokens, contagem total e tx/s ao final.</td>
+<td class="py-2 px-3 text-secondary font-label-sm text-label-sm font-mono">+12ms profiling</td>
+</tr>
+<tr class="hover:bg-surface-container/50">
+<td class="py-2 px-3 font-label-md text-label-md text-primary font-mono whitespace-nowrap">--nowordwrap</td>
+<td class="py-2 px-3 text-on-surface">Desativa quebra automática de texto ideal para saídas pipeadas.</td>
+<td class="py-2 px-3 text-on-surface-variant font-label-sm text-label-sm font-mono">Zero overhead</td>
+</tr>
+<tr class="hover:bg-surface-container/50">
+<td class="py-2 px-3 font-label-md text-label-md text-primary font-mono whitespace-nowrap">--infill</td>
+<td class="py-2 px-3 text-on-surface">Habilita FIM (Fill-In-the-Middle) nativo suportado pelo Qwen Coder.</td>
+<td class="py-2 px-3 text-tertiary font-label-sm text-label-sm font-mono">Code-completion</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Bottom Action Micro-bar -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[17px]">thumb_up</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[17px]">thumb_down</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[17px]">refresh</span>
+</button>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="font-mono">184 tokens</span>
+<span>•</span>
+<span class="font-mono text-secondary">64.1 tok/s</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Token Generation Indicator -->
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm pl-2">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-mono">Inference pipeline idling • Pronto para novas instruções</span>
+</div>
+</div>
+<!-- Slidable Parameters Drawer (Right, collapsible for 900px viewport) -->
+<div class="absolute inset-y-0 right-0 z-40 w-72 bg-surface-container-low shadow-2xl translate-x-full transition-transform duration-200 flex flex-col" id="params-drawer">
+<div class="flex items-center justify-between p-space-md bg-surface-container">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">tune</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Runtime Params</span>
+</div>
+<button class="w-7 h-7 rounded flex items-center justify-center hover:bg-surface-variant text-on-surface-variant hover:text-on-surface" id="close-params-drawer">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-space-md space-y-5">
+<!-- Temperature -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface">Temperature</span>
+<span class="font-mono text-primary">0.20 (Precise)</span>
+</div>
+<input class="w-full accent-primary bg-surface-container h-1.5 rounded-lg appearance-none cursor-pointer" max="1" min="0" step="0.05" type="range" value="0.2"/>
+</div>
+<!-- Top P -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface">Top P</span>
+<span class="font-mono text-primary">0.85</span>
+</div>
+<input class="w-full accent-primary bg-surface-container h-1.5 rounded-lg appearance-none cursor-pointer" max="1" min="0" step="0.05" type="range" value="0.85"/>
+</div>
+<!-- Context Window Slider -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface">Context Length (num_ctx)</span>
+<span class="font-mono text-secondary">8,192 tokens</span>
+</div>
+<div class="grid grid-cols-3 gap-1.5 pt-1">
+<button class="py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high">4K</button>
+<button class="py-1 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold">8K</button>
+<button class="py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high">32K</button>
+</div>
+</div>
+<!-- System Prompt Capsule -->
+<div class="space-y-1.5">
+<span class="font-label-sm text-label-sm text-on-surface">System Prompt Override</span>
+<textarea class="w-full p-2.5 rounded-xl bg-surface-container text-on-surface font-body-sm text-body-sm outline-none resize-none placeholder:text-on-surface-variant/50" placeholder="You are an expert Python engineer focusing on clean architecture..." rows="4"></textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- Responsive Compact Bottom Floating Composer (Max-w-full with 16px/20px radius) -->
+<div class="sticky bottom-0 z-20 px-space-md pb-space-sm pt-1 bg-gradient-to-t from-surface via-surface/90 to-transparent">
+<div class="max-w-3xl mx-auto rounded-2xl bg-surface-container-high shadow-xl p-space-xs sm:p-space-sm">
+<!-- Top Micro Shelf: Quick Attachment Tags or Active Context Hints -->
+<div class="hidden items-center gap-space-xs px-2 py-1 mb-1 bg-surface-container rounded-lg" id="attachment-shelf">
+<span class="material-symbols-outlined text-primary text-[15px]">attachment</span>
+<span class="font-label-sm text-label-sm text-on-surface font-mono truncate max-w-[200px]">legacy_worker.py</span>
+<button class="w-4 h-4 ml-auto rounded flex items-center justify-center text-on-surface-variant hover:text-error" id="remove-attach">
+<span class="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+<!-- Composer Input Core -->
+<div class="flex items-end gap-space-xs">
+<!-- Multimodal Tool Attachment Trigger -->
+<button class="w-9 h-9 shrink-0 rounded-xl flex items-center justify-center bg-surface-container hover:bg-surface-variant text-on-surface-variant hover:text-on-surface transition-colors" id="btn-attach" title="Attach file or context">
+<span class="material-symbols-outlined text-[19px]">attach_file</span>
+</button>
+<!-- Prompt Field -->
+<textarea class="flex-1 max-h-32 py-2 px-2.5 bg-transparent text-on-surface font-body-md text-body-md placeholder:text-on-surface-variant/60 outline-none resize-none leading-5" id="prompt-input" placeholder="Envie uma mensagem ou comando para qwen2.5:7b-coder..." rows="1" style="min-height: 36px;"></textarea>
+<!-- Dynamic Execution Trigger (Morphs from Mic to Send) -->
+<button class="w-9 h-9 shrink-0 rounded-xl flex items-center justify-center bg-primary-container text-on-primary-container hover:opacity-90 active:scale-95 transition-all shadow-sm" id="btn-send" title="Send Message (Enter)">
+<span class="material-symbols-outlined text-[19px]" id="send-icon">send</span>
+</button>
+</div>
+<!-- Bottom Status & Shortcuts Line -->
+<div class="flex items-center justify-between px-2 pt-1.5 text-on-surface-variant font-label-sm text-[11px] leading-tight select-none">
+<div class="flex items-center gap-2 truncate">
+<span class="hidden sm:inline">Enter para enviar</span>
+<span class="hidden sm:inline">•</span>
+<span class="hidden sm:inline">Shift+Enter nova linha</span>
+<span class="sm:hidden">Enter: Enviar</span>
+<span>•</span>
+<span class="text-primary cursor-pointer hover:underline">Ctrl+K comandos</span>
+</div>
+<div class="flex items-center gap-1.5 shrink-0 font-mono text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>CUDA 12.4</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Micro-Interactions Script -->
+<script>
+    (() => {
+      // Elements
+      const drawer = document.getElementById('session-drawer');
+      const backdrop = document.getElementById('drawer-backdrop');
+      const toggleHistoryBtn = document.getElementById('toggle-history-drawer');
+      const closeHistoryBtn = document.getElementById('close-history-drawer');
+
+      const paramsDrawer = document.getElementById('params-drawer');
+      const toggleParamsBtn = document.getElementById('toggle-params-btn');
+      const closeParamsBtn = document.getElementById('close-params-drawer');
+
+      const modelBtn = document.getElementById('model-dropdown-trigger');
+      const modelMenu = document.getElementById('model-dropdown-menu');
+
+      const promptInput = document.getElementById('prompt-input');
+      const sendIcon = document.getElementById('send-icon');
+      const btnAttach = document.getElementById('btn-attach');
+      const shelf = document.getElementById('attachment-shelf');
+      const removeAttach = document.getElementById('remove-attach');
+
+      const copyBtn = document.getElementById('copy-code-btn');
+      const copyIcon = document.getElementById('copy-icon');
+      const copyLabel = document.getElementById('copy-label');
+
+      // History Drawer Controls
+      const openHistory = () => {
+        drawer.classList.remove('-translate-x-full');
+        backdrop.classList.remove('hidden');
+      };
+      const closeHistory = () => {
+        drawer.classList.add('-translate-x-full');
+        backdrop.classList.add('hidden');
+      };
+
+      toggleHistoryBtn?.addEventListener('click', () => {
+        if (drawer.classList.contains('-translate-x-full')) {
+          openHistory();
+        } else {
+          closeHistory();
+        }
+      });
+      closeHistoryBtn?.addEventListener('click', closeHistory);
+
+      // Params Drawer Controls
+      const openParams = () => {
+        paramsDrawer.classList.remove('translate-x-full');
+        backdrop.classList.remove('hidden');
+      };
+      const closeParams = () => {
+        paramsDrawer.classList.add('translate-x-full');
+        backdrop.classList.add('hidden');
+      };
+
+      toggleParamsBtn?.addEventListener('click', () => {
+        if (paramsDrawer.classList.contains('translate-x-full')) {
+          openParams();
+        } else {
+          closeParams();
+        }
+      });
+      closeParamsBtn?.addEventListener('click', closeParams);
+
+      backdrop?.addEventListener('click', () => {
+        closeHistory();
+        closeParams();
+      });
+
+      // Model Menu toggle
+      modelBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        modelMenu.classList.toggle('hidden');
+      });
+      window.addEventListener('click', () => {
+        modelMenu?.classList.add('hidden');
+      });
+
+      // Auto-grow textarea & morph icon
+      promptInput?.addEventListener('input', (e) => {
+        e.target.style.height = 'auto';
+        e.target.style.height = Math.min(e.target.scrollHeight, 120) + 'px';
+        if (e.target.value.trim().length > 0) {
+          sendIcon.textContent = 'arrow_upward';
+        } else {
+          sendIcon.textContent = 'send';
+        }
+      });
+
+      // Toggle simulated attachment
+      btnAttach?.addEventListener('click', () => {
+        shelf?.classList.remove('hidden');
+        shelf?.classList.add('flex');
+      });
+      removeAttach?.addEventListener('click', () => {
+        shelf?.classList.add('hidden');
+        shelf?.classList.remove('flex');
+      });
+
+      // One-click Code Copy Microaction
+      copyBtn?.addEventListener('click', async () => {
+        const textToCopy = `ollama run qwen2.5:7b-coder "refactor code: optimize memory in script.py"\ncat legacy_worker.py | ollama run qwen2.5:7b-coder "reescreva usando async/await sem dependências externas"`;
+        try {
+          await navigator.clipboard.writeText(textToCopy);
+          copyIcon.textContent = 'check';
+          copyLabel.textContent = 'Copiado!';
+          setTimeout(() => {
+            copyIcon.textContent = 'content_copy';
+            copyLabel.textContent = 'Copiar';
+          }, 2000);
+        } catch (err) {
+          copyLabel.textContent = 'Erro';
+        }
+      });
+    })();
+  </script>
+</div></main></div></body></html>
