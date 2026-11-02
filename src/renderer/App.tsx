@@ -8,6 +8,7 @@ import { Composer } from './components/Composer';
 import { ConfirmDialog, ModelsDialog, SettingsDialog, ToolsDialog } from './components/Dialogs';
 import { Markdown } from './components/Markdown';
 import { MessageView, ToolCallCard } from './components/MessageView';
+import { NavigationRail } from './components/NavigationRail';
 import { ParamsPanel } from './components/ParamsPanel';
 import { Sidebar } from './components/Sidebar';
 import { ttsAvailable, ttsSupported } from './lib/audio';
@@ -35,7 +36,20 @@ export function App() {
   const [modelId, setModelId] = useState<string>(() => loadJson('ocs.model', DEFAULT_MODEL));
   const [params, setParams] = useState<ChatParams>(() => loadJson('ocs.params', {}));
   const [toolsOn, setToolsOn] = useState<boolean>(() => loadJson('ocs.tools', false));
-  const [showParams, setShowParams] = useState(true);
+  const [showParams, setShowParams] = useState(false);
+  const closeParams = useCallback(() => {
+    setShowParams(false);
+    document.querySelector<HTMLButtonElement>('.nav-rail button[aria-label="Parâmetros do modelo"]')?.focus();
+  }, []);
+  const [showSidebar, setShowSidebar] = useState(() => window.innerWidth >= 960);
+  useEffect(() => {
+    const onResize = () => {
+      // Keep conversation and composer usable when moving to a compact window.
+      if (window.innerWidth < 960) setShowSidebar(false);
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
   const [live, setLive] = useState<Live | null>(null);
   const [dialog, setDialog] = useState<DialogName>(null);
   const [confirms, setConfirms] = useState<ToolConfirmRequest[]>([]);
@@ -101,6 +115,12 @@ export function App() {
   useEffect(() => saveJson('ocs.model', modelId), [modelId]);
   useEffect(() => saveJson('ocs.params', params), [params]);
   useEffect(() => saveJson('ocs.tools', toolsOn), [toolsOn]);
+  useEffect(() => {
+    if (!showParams) return;
+    const escape = (event: KeyboardEvent) => { if (event.key === 'Escape') closeParams(); };
+    document.addEventListener('keydown', escape);
+    return () => document.removeEventListener('keydown', escape);
+  }, [showParams, closeParams]);
 
   // eventos de streaming vindos do main
   useEffect(() => {
@@ -214,8 +234,17 @@ export function App() {
   const chipCtx = { asrOk: adapters.asr, asrReason, ttsOk };
 
   return (
-    <div className={`app${showParams ? ' with-params' : ''}`}>
-      <Sidebar
+    <div className={'app' + (showParams ? ' with-params' : '') + (showSidebar ? ' sidebar-open' : '')}>
+      <NavigationRail
+        sidebarOpen={showSidebar}
+        drawerOpen={showParams}
+        onToggleSidebar={() => setShowSidebar((v) => !v)}
+        onNewConversation={newConversation}
+        onOpenModels={() => setDialog('models')}
+        onToggleParams={() => setShowParams((v) => !v)}
+        onOpenSettings={() => setDialog('settings')}
+      />
+      {showSidebar && <Sidebar
         conversations={convs}
         activeId={activeId}
         query={query}
@@ -236,9 +265,9 @@ export function App() {
             if (r.path) flash(`Exportado para ${r.path}`);
           })
         }
-      />
+      />}
 
-      <main className="main">
+      <main className={'main' + (messages.length === 0 && !liveHere ? ' is-empty' : '')}>
         <header className="topbar">
           <div className="row">
             <label className="model-select">
@@ -276,11 +305,9 @@ export function App() {
         <div className="scroller" ref={scroller}>
           {messages.length === 0 && !liveHere && (
             <div className="welcome">
-              <h1>Ollama Chat Studio</h1>
-              <p>
-                Converse com <strong>{caps.displayName}</strong> na nuvem da Ollama. Os recursos acima mostram o que este modelo faz de forma nativa, o que depende de adaptador externo e o que não é suportado — o app só habilita o que é compatível.
-              </p>
-              <p className="muted small">Abra “Capacidades” e use “Verificar capacidades” para confirmar tudo na sua conta (só metadados, sem gastar tokens).</p>
+              <div className="welcome-mark" aria-hidden="true">◇</div>
+              <h1>O que vamos explorar hoje?</h1>
+              <p>Converse com <strong>{caps.displayName}</strong> na Ollama Cloud, usando somente as capacidades disponíveis.</p>
             </div>
           )}
           {messages.map((m) => (
@@ -336,7 +363,10 @@ export function App() {
       </main>
 
       {showParams && (
-        <ParamsPanel model={caps} params={params} onChange={setParams} toolsOn={toolsEffective} toolsReason={toolsReason} onToolsChange={setToolsOn} />
+        <div className="drawer-host" role="dialog" aria-label="Parâmetros do modelo">
+          <button className="drawer-close" type="button" aria-label="Fechar parâmetros" onClick={closeParams}>✕</button>
+          <ParamsPanel model={caps} params={params} onChange={setParams} toolsOn={toolsEffective} toolsReason={toolsReason} onToolsChange={setToolsOn} />
+        </div>
       )}
 
       {dialog === 'settings' && <SettingsDialog secret={secret} settings={settings} onClose={() => setDialog(null)} onSecret={setSecret} onSettings={setSettings} />}

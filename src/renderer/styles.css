@@ -715,3 +715,271 @@ pre {
   padding: 4px 6px;
   text-align: left;
 }
+
+/* Ollama Chat Studio Desktop UI v1 — clean-room, own brand tokens.
+   Visual direction reviewed against Google Stitch generated screens; no
+   proprietary stylesheet or remote script has been imported. */
+:root {
+  --bg: #101318;
+  --panel: #181d25;
+  --panel2: #232a35;
+  --border: #303948;
+  --text: #f0f2f5;
+  --muted: #a0abb9;
+  --accent: #77a8ff;
+  --accent-bg: #263e60;
+  --ok: #55c999;
+  --warn: #e7af54;
+  --bad: #f27d88;
+  --info: #77a8ff;
+}
+button, input, textarea, select { transition: border-color .14s ease, background-color .14s ease; }
+button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+button { min-height: 38px; }
+.app, .app.with-params {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  height: 100vh;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+.app.sidebar-open { grid-template-columns: 56px 256px minmax(0, 1fr); }
+.app.with-params { grid-template-columns: 56px minmax(0, 1fr) 300px; }
+.app.with-params.sidebar-open { grid-template-columns: 56px 256px minmax(0, 1fr) 300px; }
+.nav-rail {
+  grid-column: 1;
+  grid-row: 1;
+  background: #141a22;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  padding: 18px 6px 12px;
+  min-height: 0;
+  z-index: 2;
+}
+.rail-brand {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 15px;
+}
+.rail-action {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  min-height: 44px;
+  border: none;
+  padding: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 23px;
+}
+.rail-action:hover:not(:disabled), .rail-action.active {
+  background: #283244;
+  color: var(--text);
+}
+.rail-spacer { flex: 1; }
+.app .sidebar {
+  grid-column: 2;
+  grid-row: 1;
+  background: var(--panel);
+  padding: 18px 12px 14px;
+  gap: 13px;
+  overflow: hidden;
+}
+.sidebar .primary.wide-btn {
+  height: 45px;
+  border-radius: 13px;
+  background: var(--accent-bg);
+  color: #e5efff;
+  font-weight: 600;
+}
+.sidebar .search { min-height: 40px; background: #111721; border-radius: 12px; }
+.sidebar .conv { border-radius: 12px; padding: 11px 10px; }
+.sidebar li:hover:not(.empty) { background: #222a37; }
+.app .main {
+  grid-column: 2;
+  grid-row: 1;
+  background: #111720;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+.app.sidebar-open .main { grid-column: 3; }
+.topbar {
+  flex: 0 0 auto;
+  background: #111720;
+  padding: 13px 18px 10px;
+  border-bottom: 1px solid #24303d;
+}
+.topbar .row { min-width: 0; }
+.topbar button { border-radius: 12px; }
+.topbar .model-select { flex: 0 1 320px; min-width: min(180px, 100%); }
+.topbar .model-select select { min-width: 0; width: 100%; height: 42px; border-radius: 12px; background: var(--panel); }
+.topbar .chips { gap: 5px; max-height: 52px; overflow-y: auto; }
+.topbar .chip { background: #1b2430; }
+.main .scroller {
+  min-width: 0;
+  overflow-x: hidden;
+  padding: 22px clamp(14px, 5%, 72px);
+  scrollbar-gutter: stable;
+}
+.main .scroller > article,
+.main .scroller > .msg { max-width: 840px; margin-left: auto; margin-right: auto; }
+.main .welcome {
+  max-width: 780px;
+  padding: 10px 18px;
+  margin: 0 auto;
+  text-align: center;
+}
+.welcome-mark {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #445875;
+  border-radius: 20px;
+  background: #1d3047;
+  color: var(--accent);
+  font-size: 27px;
+  margin: 0 auto 16px;
+}
+.welcome h1 {
+  font-weight: 600;
+  font-size: clamp(24px, 2.7vw, 34px);
+  letter-spacing: -.025em;
+  line-height: 1.25;
+}
+.welcome p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+.main.is-empty .scroller {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 12px;
+}
+.main.is-empty .welcome { margin: 0 auto; }
+.main.is-empty .composer { margin-bottom: clamp(14px, 13vh, 120px); }
+.composer {
+  flex: 0 0 auto;
+  padding: 9px clamp(12px, 4%, 48px) 12px;
+  border: none;
+  background: #111720;
+}
+.composer .compose-row {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 9px 10px 9px 12px;
+  border-radius: 22px;
+  border: 1px solid #394657;
+  background: #242d39;
+  gap: 8px;
+  align-items: center;
+}
+.composer .compose-row textarea {
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  min-height: 48px;
+  max-height: 180px;
+  resize: vertical;
+  padding: 10px 8px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.composer .compose-row textarea:focus-visible { outline: none; }
+.composer .compose-row:focus-within { border-color: var(--accent); box-shadow: 0 0 0 2px #77a8ff25; }
+.composer .compose-row button { border-radius: 12px; min-width: 42px; min-height: 42px; }
+.composer .compose-row button.primary { background: var(--accent); border: none; color: #101318; font-weight: 700; }
+.composer .pipeline, .composer .pending, .composer .hints, .composer .recording,
+.composer .badge { max-width: 840px; margin-left: auto; margin-right: auto; }
+.composer .hints { font-size: 11px; }
+.main .statusbar {
+  flex: 0 0 auto;
+  background: #141a22;
+  padding: 5px 14px;
+  border-top: 1px solid #283344;
+  gap: 12px;
+}
+.drawer-host {
+  position: relative;
+  grid-column: 3;
+  grid-row: 1;
+  background: var(--panel);
+  min-height: 0;
+  min-width: 0;
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+.app.sidebar-open .drawer-host { grid-column: 4; }
+.drawer-host .params { flex: 1; padding: 57px 15px 16px; min-height: 0; }
+.drawer-close {
+  position: absolute;
+  right: 13px;
+  top: 13px;
+  z-index: 3;
+  min-width: 38px;
+  min-height: 38px;
+  background: #222d39;
+}
+@media (max-width: 1199px) {
+  .app.with-params { grid-template-columns: 56px minmax(0, 1fr); }
+  .app.with-params.sidebar-open { grid-template-columns: 56px 256px minmax(0, 1fr); }
+  .app .drawer-host {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: min(340px, 90vw);
+    z-index: 40;
+    box-shadow: -20px 0 50px #0008;
+  }
+}
+@media (max-width: 959px) {
+  .app, .app.sidebar-open, .app.with-params, .app.with-params.sidebar-open { grid-template-columns: 56px minmax(0, 1fr); }
+  .app.sidebar-open .main, .app .main { grid-column: 2; }
+  .app.sidebar-open .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 56px;
+    width: min(256px, calc(100vw - 56px));
+    z-index: 35;
+    box-shadow: 16px 0 40px #000a;
+  }
+  .topbar { padding: 8px 10px; }
+  .topbar .row { gap: 5px; }
+  .topbar .model-select { flex-basis: 220px; }
+  .topbar .chips { max-height: 30px; }
+  .main .scroller { padding: 15px 12px; }
+  .composer { padding: 8px 10px; }
+  .main .statusbar { font-size: 10px; max-height: 36px; overflow: hidden; }
+}
+@media (max-width: 719px) {
+  .main.is-empty .welcome { padding: 0 10px; }
+  .welcome h1 { font-size: 23px; }
+  .main.is-empty .composer { margin-bottom: clamp(12px, 6vh, 60px); }
+  .topbar .model-select { flex-basis: 160px; }
+  .topbar .row button { padding: 6px 8px; }
+  .topbar .chip { font-size: 11px; }
+  .composer .compose-row { padding: 5px; gap: 4px; }
+  .composer .compose-row textarea { min-width: 0; font-size: 16px; }
+  .composer .compose-row button { padding: 5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation-duration: .01ms !important; }
+}

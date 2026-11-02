@@ -136,6 +136,7 @@ const check = (name, ok, detail = '') => {
   await page.waitForTimeout(250);
   const gemma = await page.evaluate(() => ({ hints: document.querySelector('.hints')?.textContent ?? '', vision: document.querySelector('.topbar .chip.native')?.parentElement?.textContent ?? '' }));
   check('gemma4:31b: imagem liberada (sem aviso de visão)', !/imagem:/.test(gemma.hints), gemma.hints);
+  await page.getByRole('button', { name: 'Parâmetros do modelo' }).click();
   const think = await page.evaluate(() => document.querySelector('.params select')?.disabled);
   check('thinking habilitado no gemma4:31b', think === false);
   await page.selectOption('select[aria-label="Modelo"]', 'nemotron-3-super');

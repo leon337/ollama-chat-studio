@@ -17,7 +17,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "e2e": "node scripts/e2e-smoke.cjs",
-    "dist:dir": "npm run build && electron-builder --linux dir"
+    "dist:dir": "npm run build && electron-builder --linux dir",
+    "e2e:ui": "node scripts/e2e-stitch-ui.cjs"
   },
   "dependencies": {
     "pdfjs-dist": "^4.10.38"
