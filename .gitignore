@@ -9,7 +9,7 @@ coverage/
 npm-debug.log*
 
 # Modelos, binarios, instaladores e ensaios somente locais
-tools/
+/tools/
 .backups/
 .local/
 scripts/e2e-mestre-*.cjs
