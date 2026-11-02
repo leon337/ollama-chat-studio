@@ -3,6 +3,7 @@ import type { AppSettings, ChatEvent, ChatParams, ConversationSummary, SecretSta
 import { asrBlockedReason } from '../shared/asr';
 import type { ModelCapabilities } from '../shared/capabilities';
 import { conservativeEntry } from '../shared/registry';
+import { decodeThinkingChoice, normalizeThinking } from '../shared/thinking';
 import { CapabilityChips } from './components/Capabilities';
 import { Composer } from './components/Composer';
 import { ConfirmDialog, ModelsDialog, SettingsDialog, ToolsDialog } from './components/Dialogs';
@@ -163,10 +164,9 @@ export function App() {
     const next = models.find((m) => m.id === id) ?? conservativeEntry(id);
     // limpa parâmetros que o novo modelo não aceita (nada de controle "fantasma")
     const p = { ...params };
-    if (p.think !== undefined && p.think !== null && p.think !== false) {
-      const ok = next.thinking.level === 'native' && (!next.thinking.levels || next.thinking.levels.includes(p.think));
-      if (!ok) delete p.think;
-    }
+    const normalized = normalizeThinking(next, p.think);
+    if (normalized === undefined) delete p.think;
+    else p.think = normalized;
     if (p.num_ctx && next.contextTokens && p.num_ctx > next.contextTokens) delete p.num_ctx;
     setParams(p);
     setModelId(id);
@@ -272,7 +272,7 @@ export function App() {
           <div className="row">
             <label className="model-select">
               <span className="sr">Modelo</span>
-              <select value={modelId} onChange={(e) => selectModel(e.target.value)} aria-label="Modelo">
+              <select value={modelId} onChange={(e) => selectModel(e.target.value)} aria-label="Modelo" disabled={streaming}>
                 {models.map((m) => (
                   <option key={m.id} value={m.id}>
                     {m.displayName} — {m.id}
@@ -342,7 +342,18 @@ export function App() {
 
         <Composer
           model={caps}
+          models={models}
           params={params}
+          onModelChange={selectModel}
+          onThinkingChange={(value) => {
+            const next = decodeThinkingChoice(caps, value);
+            setParams((old) => {
+              const updated = { ...old, think: next };
+              if (next === undefined) delete updated.think;
+              return updated;
+            });
+          }}
+          onOpenCapabilities={() => setDialog('models')}
           toolsOn={toolsEffective}
           adapters={adapters}
           asrReason={asrReason}

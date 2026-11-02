@@ -983,3 +983,96 @@ button { min-height: 38px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation-duration: .01ms !important; }
 }
+
+/* Modelo e esforço no compositor (controles Ollama reais, não imitação de níveis ChatGPT). */
+.model-reasoning-picker {
+  position: relative;
+  flex: 0 0 auto;
+  min-width: 0;
+  z-index: 15;
+}
+.composer .compose-row .model-reasoning-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: clamp(145px, 22vw, 260px);
+  min-width: 0;
+  height: 42px;
+  min-height: 42px;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  background: #303b4c;
+  padding: 0 9px;
+  font-size: 12px;
+}
+.model-reasoning-trigger:hover:not(:disabled),
+.model-reasoning-trigger[aria-expanded='true'] {
+  background: #37465a;
+  border-color: #6a88b8;
+}
+.picker-model {
+  font-weight: 600;
+  color: var(--text);
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.picker-thinking {
+  color: #c4d4ed;
+  white-space: nowrap;
+  font-size: 11px;
+}
+.picker-chevron { color: #b8c8de; font-size: 15px; }
+.model-reasoning-menu {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 13px);
+  z-index: 60;
+  width: min(330px, calc(100vw - 80px));
+  padding: 18px;
+  border: 1px solid #56647a;
+  border-radius: 19px;
+  background: #202936;
+  box-shadow: 0 16px 42px #000b;
+  text-align: left;
+}
+.picker-menu-title { font-weight: 650; font-size: 15px; margin-bottom: 14px; }
+.model-reasoning-menu .field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 12px 0;
+  color: #d9e4f4;
+  font-size: 12px;
+}
+.model-reasoning-menu .field select {
+  min-height: 42px;
+  padding: 8px;
+  border: 1px solid #53647b;
+  border-radius: 11px;
+  background: #121a26;
+  color: var(--text);
+}
+.model-reasoning-menu .field select:disabled { opacity: .58; }
+.picker-help { color: #b8c3d2; line-height: 1.45; font-size: 12px; margin: 6px 0 13px; }
+.composer .model-reasoning-menu .picker-verify {
+  width: 100%;
+  min-height: 39px;
+  background: #273d5a;
+  color: #dceaff;
+  border-radius: 11px;
+  font-size: 12px;
+}
+@media (max-width: 920px) {
+  .composer .compose-row .model-reasoning-trigger { max-width: 168px; }
+  .picker-model { max-width: 92px; }
+}
+@media (max-width: 720px) {
+  .composer .compose-row { flex-wrap: wrap; }
+  .composer .compose-row textarea { flex: 1 1 calc(100% - 75px); }
+  .composer .model-reasoning-picker { order: 3; margin-left: auto; }
+  .composer .compose-row .model-reasoning-trigger { max-width: 210px; }
+  .composer .compose-row button.danger,
+  .composer .compose-row button.primary { order: 4; }
+}

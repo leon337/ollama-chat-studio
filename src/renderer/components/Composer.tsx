@@ -8,6 +8,7 @@ import { cleanError, fmtBytes, studio } from '../lib/util';
 import { extractFrames } from '../lib/video';
 import { AudioPlayer } from './AttachmentView';
 import { Peaks } from './ui';
+import { ModelReasoningPicker } from './ModelReasoningPicker';
 
 interface Pending {
   ref: AttachmentRef;
@@ -18,7 +19,11 @@ interface Pending {
 
 interface Props {
   model: ModelCapabilities;
+  models: ModelCapabilities[];
   params: ChatParams;
+  onModelChange: (id: string) => void;
+  onThinkingChange: (value: string) => void;
+  onOpenCapabilities: () => void;
   toolsOn: boolean;
   adapters: AdapterAvailability;
   asrReason: string | null;
@@ -34,7 +39,7 @@ const MAX_VIDEO_AUDIO_BYTES = 100 * 1024 * 1024;
 const MAX_VIDEO_AUDIO_SEC = 600;
 const MAX_IPC_BYTES = 30 * 1024 * 1024;
 
-export function Composer({ model, params, toolsOn, adapters, asrReason, streaming, onSend, onStop, onNotice }: Props) {
+export function Composer({ model, models, params, onModelChange, onThinkingChange, onOpenCapabilities, toolsOn, adapters, asrReason, streaming, onSend, onStop, onNotice }: Props) {
   const [text, setText] = useState('');
   const [pending, setPending] = useState<Pending[]>([]);
   const [busy, setBusy] = useState<string | null>(null);
@@ -312,6 +317,8 @@ export function Composer({ model, params, toolsOn, adapters, asrReason, streamin
         <button className="icon" title="Anexar arquivos (imagem, PDF, texto, áudio, vídeo)" aria-label="Anexar" disabled={!!busy || streaming} onClick={() => fileInput.current?.click()}>
           📎
         </button>
+        <ModelReasoningPicker model={model} models={models} think={params.think} disabled={streaming || !!busy || recording}
+          onModelChange={onModelChange} onThinkChange={onThinkingChange} onOpenCapabilities={onOpenCapabilities} />
         <button
           className={`icon${recording ? ' rec' : ''}`}
           disabled={micDisabled || !!busy || streaming}

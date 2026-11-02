@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { ChatParams } from '../../shared/api';
 import type { ModelCapabilities, ParamKey } from '../../shared/capabilities';
+import { thinkingAvailable, thinkingChoiceKey, thinkingOptions, decodeThinkingChoice } from '../../shared/thinking';
 
 interface Props {
   model: ModelCapabilities;
@@ -28,17 +29,11 @@ export function ParamsPanel({ model, params, onChange, toolsOn, toolsReason, onT
     onChange(next);
   };
 
-  const thinkOptions: Array<{ value: string; label: string }> = [{ value: '', label: 'Padrão do modelo (não enviar)' }];
-  if (model.thinking.level === 'native') {
-    for (const v of model.thinking.levels ?? [false, true]) {
-      thinkOptions.push({ value: String(v), label: v === false ? 'Desligado' : v === true ? 'Ligado' : `Nível: ${v}` });
-    }
-  }
-  const thinkValue = params.think === undefined || params.think === null ? '' : String(params.think);
+  const thinkOptions = thinkingOptions(model.thinking);
+  const thinkValue = thinkingChoiceKey(model, params.think);
 
   function onThink(v: string) {
-    if (v === '') return set({ think: undefined });
-    set({ think: v === 'true' ? true : v === 'false' ? false : v });
+    set({ think: decodeThinkingChoice(model, v) });
   }
 
   function onJsonMode(mode: 'off' | 'json' | 'schema') {
@@ -103,15 +98,15 @@ export function ParamsPanel({ model, params, onChange, toolsOn, toolsReason, onT
 
       <label className="field">
         <span>Raciocínio (thinking)</span>
-        <select value={thinkValue} disabled={model.thinking.level !== 'native'} onChange={(e) => onThink(e.target.value)}>
+        <select value={thinkValue} disabled={!thinkingAvailable(model.thinking)} onChange={(e) => onThink(e.target.value)}>
           {thinkOptions.map((o) => (
-            <option key={o.value} value={o.value}>
+            <option key={o.key} value={o.key}>
               {o.label}
             </option>
           ))}
         </select>
-        {model.thinking.level !== 'native' && <small className="muted">Este modelo não oferece thinking.</small>}
-        {model.thinking.level === 'native' && <small className="muted">O texto do raciocínio não é exibido nem salvo; só o indicador.</small>}
+        {!thinkingAvailable(model.thinking) && <small className="muted">Este modelo não oferece thinking.</small>}
+        {thinkingAvailable(model.thinking) && <small className="muted">O texto do raciocínio não é exibido nem salvo; só o indicador.</small>}
       </label>
 
       <label className="field">
