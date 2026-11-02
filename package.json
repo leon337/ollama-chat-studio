@@ -1,0 +1,74 @@
+{
+  "name": "ollama-chat-studio",
+  "version": "0.1.1",
+  "description": "Cliente desktop (Electron) para explorar modelos Ollama Cloud com registro de capacidades verificadas",
+  "main": "dist/main/index.js",
+  "private": true,
+  "license": "MIT",
+  "author": "Leo",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build:electron": "node scripts/build-electron.mjs",
+    "build:renderer": "vite build",
+    "build": "npm run typecheck && npm run build:electron && npm run build:renderer",
+    "start": "npm run build:electron && npm run build:renderer && electron .",
+    "dist": "npm run build && electron-builder --linux AppImage deb",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "e2e": "node scripts/e2e-smoke.cjs",
+    "dist:dir": "npm run build && electron-builder --linux dir"
+  },
+  "dependencies": {
+    "pdfjs-dist": "^4.10.38"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "ajv": "^8.17.0",
+    "concurrently": "^9.1.0",
+    "electron": "^39.0.0",
+    "electron-builder": "^25.1.8",
+    "esbuild": "^0.24.0",
+    "highlight.js": "^11.10.0",
+    "playwright-core": "^1.49.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^9.0.1",
+    "rehype-highlight": "^7.0.0",
+    "remark-gfm": "^4.0.0",
+    "rollup": "npm:@rollup/wasm-node@^4.67.3",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.0",
+    "vitest": "^2.1.8",
+    "wait-on": "^8.0.1",
+    "zod": "^3.23.8"
+  },
+  "build": {
+    "appId": "br.leo.ollama-chat-studio",
+    "productName": "Ollama Chat Studio",
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Development"
+    },
+    "asarUnpack": [
+      "node_modules/pdfjs-dist/**"
+    ],
+    "directories": {
+      "output": "release"
+    }
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "overrides": {}
+}

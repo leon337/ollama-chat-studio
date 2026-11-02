@@ -1,0 +1,42 @@
+# Dependencias e artefatos gerados
+node_modules/
+dist/
+release/
+release-*/
+coverage/
+*.tsbuildinfo
+*.log
+npm-debug.log*
+
+# Modelos, binarios, instaladores e ensaios somente locais
+tools/
+.backups/
+.local/
+scripts/e2e-mestre-*.cjs
+scripts/e2e-multimodal-mestre.cjs
+*.core
+core.*
+
+# Credenciais, conversas e bancos da maquina
+.env
+.env.*
+!.env.example
+secrets.bin
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.pem
+*.p12
+*.pfx
+*.key
+
+# Arquivos temporarios do SO / IDE
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
