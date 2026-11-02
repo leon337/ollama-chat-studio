@@ -13,7 +13,7 @@ export const paramsSchema = z
     seed: z.number().int().optional(),
     num_predict: z.number().int().min(1).max(1_000_000).optional(),
     num_ctx: z.number().int().min(512).max(2_000_000).optional(),
-    think: z.union([z.boolean(), z.enum(['low', 'medium', 'high']), z.null()]).optional(),
+    think: z.union([z.boolean(), z.string().regex(/^[a-z][a-z0-9_-]{0,31}$/, 'nível de raciocínio inválido'), z.null()]).optional(),
     json: z.union([z.boolean(), z.record(z.unknown())]).optional(),
   })
   .strict();

@@ -23,6 +23,8 @@ export interface CapabilityEntry {
 export interface ThinkingEntry extends CapabilityEntry {
   /** Valores aceitos em `think` (ex.: [false,true] ou ['low','medium','high']). null = desconhecido. */
   levels: Array<boolean | string> | null;
+  /** Padrão anunciado por /api/show, quando disponível. */
+  default?: boolean | string;
 }
 
 export type ParamKey = 'temperature' | 'top_p' | 'seed' | 'num_predict' | 'num_ctx';
@@ -69,4 +71,5 @@ export interface ShowInfo {
   capabilities: string[];
   contextLength: number | null;
   thinkingValues: Array<boolean | string> | null;
+  thinkingDefault?: boolean | string;
 }

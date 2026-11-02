@@ -25,7 +25,13 @@ export function parseShowResponse(json: unknown): ShowInfo {
       (v): v is boolean | string => typeof v === 'boolean' || typeof v === 'string',
     );
   }
-  return { capabilities: caps, contextLength, thinkingValues };
+  const proposedDefault = th && typeof th === 'object' ? (th as { default?: unknown }).default : undefined;
+  const thinkingDefault = (typeof proposedDefault === 'boolean' || typeof proposedDefault === 'string') &&
+    (thinkingValues?.includes(proposedDefault) ?? false) ? proposedDefault : undefined;
+  return {
+    capabilities: caps, contextLength, thinkingValues,
+    ...(thinkingDefault !== undefined ? { thinkingDefault } : {}),
+  };
 }
 
 const clone = <T,>(v: T): T => structuredClone(v);
@@ -127,6 +133,7 @@ export class ModelCapabilityRegistry {
     const thinking: ThinkingEntry = {
       ...thinkingBase,
       levels: thinkingPresent ? (info.thinkingValues ?? m.thinking.levels ?? [false, true]) : null,
+      ...(thinkingPresent && info.thinkingDefault !== undefined ? { default: info.thinkingDefault } : {}),
     };
     m.thinking = thinking;
 

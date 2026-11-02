@@ -179,7 +179,7 @@ describe('validação de payloads IPC (renderer não é confiável)', () => {
     expect(sendSchema.safeParse({ ...ok, extra: 1 }).success).toBe(false);
     expect(sendSchema.safeParse({ ...ok, attachmentIds: Array(11).fill('a') }).success).toBe(false);
     expect(paramsSchema.safeParse({ temperature: 9 }).success).toBe(false);
-    expect(paramsSchema.safeParse({ think: 'ultra' }).success).toBe(false);
+    expect(paramsSchema.safeParse({ think: 'Ultra; rm -rf /' }).success).toBe(false);
     expect(paramsSchema.safeParse({ unknown: 1 }).success).toBe(false);
     expect(attachmentBytesSchema.safeParse({ id: '../../x', frameIndex: 99 }).success).toBe(false);
     expect(ingestSchema.safeParse({ name: 'a', mime: 'x', bytes: new Uint8Array(0) }).success).toBe(false);

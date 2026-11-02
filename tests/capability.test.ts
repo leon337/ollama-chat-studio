@@ -118,7 +118,7 @@ describe('prova em runtime (/api/show) e divergências', () => {
       model_info: { 'gptoss.context_length': 131072, 'general.architecture': 'gptoss' },
       thinking: { values: ['low', 'medium', 'high'], default: 'medium' },
     });
-    expect(info).toEqual({ capabilities: ['completion', 'tools', 'thinking'], contextLength: 131072, thinkingValues: ['low', 'medium', 'high'] });
+    expect(info).toEqual({ capabilities: ['completion', 'tools', 'thinking'], contextLength: 131072, thinkingValues: ['low', 'medium', 'high'], thinkingDefault: 'medium' });
     expect(parseShowResponse(null).capabilities).toEqual([]);
   });
 
